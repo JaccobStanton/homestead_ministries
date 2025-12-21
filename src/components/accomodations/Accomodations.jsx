@@ -274,66 +274,6 @@ function StayCard({
   );
 }
 
-function PillLink({ children = "Who We Are", onClick, href, sx }) {
-  return (
-    <Button
-      component={href ? "a" : "button"}
-      href={href}
-      onClick={onClick}
-      variant="outlined"
-      endIcon={
-        <Box
-          aria-hidden
-          className="about-cta-badge"
-          sx={{
-            width: 34,
-            height: 34,
-            borderRadius: "999px",
-            display: "grid",
-            placeItems: "center",
-            backgroundColor: "rgba(132, 164, 119, 0.18)",
-            border: "1px solid rgba(39, 58, 36, 0.18)",
-            transition:
-              "transform 170ms ease, background-color 170ms ease, border-color 170ms ease",
-          }}
-        >
-          <ArrowOutwardRoundedIcon sx={{ fontSize: 18 }} />
-        </Box>
-      }
-      sx={[
-        {
-          mt: 3.25,
-          alignSelf: "flex-start",
-          color: "rgba(11, 20, 16, 0.92)",
-          borderColor: "rgba(39, 58, 36, 0.30)",
-          backgroundColor: "rgba(255,255,255,0.55)",
-          backdropFilter: "blur(6px)",
-          px: "var(--btn-px)",
-          py: "var(--btn-py)",
-          minHeight: 46,
-
-          "&:hover": {
-            borderColor: "rgba(39, 58, 36, 0.45)",
-            backgroundColor: "rgba(205, 230, 216, 0.55)",
-            transform: "translateY(-1px)",
-          },
-
-          "&:hover .about-cta-badge": {
-            transform: "translateX(2px)",
-            backgroundColor: "rgba(132, 164, 119, 0.26)",
-            borderColor: "rgba(39, 58, 36, 0.28)",
-          },
-
-          "& .MuiButton-endIcon": { ml: 1 },
-        },
-        sx,
-      ]}
-    >
-      {children}
-    </Button>
-  );
-}
-
 export default function Accommodations({
   eyebrow = "Explore Our Accommodations",
   title = "Discover our most popular accommodations",
