@@ -92,7 +92,7 @@ export default function Banner() {
       component="section"
       ref={sectionRef}
       sx={{
-        minHeight: { xs: "70vh", md: "75vh" },
+        minHeight: { xs: "55vh", md: "60vh" },
         position: "relative",
         display: "grid",
         alignItems: "center",
@@ -107,7 +107,7 @@ export default function Banner() {
           inset: 0,
           backgroundImage: `url(${bannerUrl})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center 50%",
           transform: "scale(1.02)",
         }}
       />
@@ -126,7 +126,9 @@ export default function Banner() {
         sx={{
           position: "relative",
           zIndex: 1,
-          pt: { xs: 10, md: 14 },
+          minHeight: "100%",
+          display: "flex",
+          alignItems: "center",
           px: { xs: 2, sm: 3, md: 6 },
         }}
       >
