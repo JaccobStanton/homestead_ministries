@@ -189,7 +189,7 @@ export default function Hero() {
                 },
               }}
             >
-              Accommodation
+              Accommodations
             </PillAction>
           </Box>
         </Box>
