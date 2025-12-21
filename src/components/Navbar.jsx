@@ -74,9 +74,41 @@ function PillAction({ variant = "contained", children, onClick, sx }) {
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <AppBar position="absolute">
+    <AppBar
+      color="transparent"
+      position="fixed"
+      sx={{
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: (theme) => theme.zIndex.appBar,
+        backgroundColor: scrolled ? "rgba(81, 116, 73, 0.72)" : "rgba(0,0,0,0)",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        boxShadow: scrolled ? "0 8px 22px rgba(0,0,0,0.16)" : "none",
+        backgroundImage: "none",
+        borderTopLeftRadius: scrolled ? 0 : "inherit",
+        borderTopRightRadius: scrolled ? 0 : "inherit",
+        borderBottomLeftRadius: scrolled ? 0 : "inherit",
+        borderBottomRightRadius: scrolled ? 0 : "inherit",
+        borderBottom: scrolled
+          ? "1px solid rgba(255,255,255,0.12)"
+          : "1px solid transparent",
+        transition: "background-color 220ms ease, border-color 220ms ease",
+      }}
+    >
       <Container sx={{ px: { xs: 2, sm: 3, md: 6 } }}>
         <Toolbar
           disableGutters
@@ -88,7 +120,17 @@ export default function Navbar() {
           }}
         >
           {/* Brand */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
+          <Box
+            component="a"
+            href="#top"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1.2,
+              textDecoration: "none",
+            }}
+            aria-label="Back to top"
+          >
             <Box
               component="img"
               src={logoUrl}

@@ -61,6 +61,7 @@ function PillAction({ variant = "contained", children, sx }) {
 export default function Hero() {
   return (
     <Box
+      id="top"
       component="section"
       sx={{
         minHeight: "100vh",
