@@ -29,17 +29,18 @@ const items = [
     image: img1,
   },
   {
-    title: "Safety & Security for Your Family",
-    body: "Thoughtful measures in place so you can relax fully.",
-    icon: ShieldRoundedIcon,
-    image: img2,
-  },
-  {
     title: "Functional Kitchen Facilities",
     body: "Well‑equipped spaces for simple meals and slow mornings.",
     icon: KitchenRoundedIcon,
     image: img3,
   },
+  {
+    title: "Safety & Security for Your Family",
+    body: "Thoughtful measures in place so you can relax fully.",
+    icon: ShieldRoundedIcon,
+    image: img2,
+  },
+
   {
     title: "Comfortable Sleeping Arrangements",
     body: "Cozy beds and linens for a deep, restful sleep.",

@@ -9,6 +9,7 @@ import {
   Stack,
 } from "@mui/material";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
+import { Link as RouterLink } from "react-router-dom";
 import BedOutlinedIcon from "@mui/icons-material/BedOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
@@ -16,9 +17,12 @@ import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import card1Img from "../../assets/accomodations/accom1.webp";
 import card2Img from "../../assets/accomodations/fire.jpg";
 
-function CardPillAction({ variant = "contained", children, sx }) {
+function CardPillAction({ variant = "contained", children, sx, to, href }) {
   return (
     <Button
+      component={to ? RouterLink : href ? "a" : "button"}
+      to={to}
+      href={href}
       variant={variant}
       endIcon={
         <Box
@@ -86,6 +90,7 @@ function StayCard({
   priceSuffix = "per night",
   beds = "Multiple Beds",
   sleeps = "Sleeps 5",
+  viewDetailsTo,
   onViewDetails,
   onBookNow,
 }) {
@@ -246,6 +251,7 @@ function StayCard({
           >
             <CardPillAction
               variant="contained"
+              to={viewDetailsTo}
               onClick={onViewDetails}
               sx={{
                 "&:hover": { transform: "translateY(-1px)" },
@@ -412,6 +418,7 @@ export default function Accommodations({
             <StayCard
               image={card1Img}
               contentVisible={cardInView[0]}
+              viewDetailsTo="/accommodations/lion-manes-lodge"
               title="Lion's Mane Lodge"
               description="Minimalism meets comfort in this 160 sq ft off-grid-style cabin with a 120 sq ft lookout deck—perfect for sunrise coffee or stargazing."
               price="$80 - $100"
