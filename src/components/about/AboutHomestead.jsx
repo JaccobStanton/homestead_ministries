@@ -1,17 +1,19 @@
 // AboutHomestead.jsx
 import * as React from "react";
 import { Box, Button, Container, Typography } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
 // Replace these with your real assets
 import smallImg from "../../assets/about/about1.webp";
 import tallImg from "../../assets/about/about2.webp";
 
-function PillLink({ children = "Who We Are", onClick, href, sx }) {
+function PillLink({ children = "Who We Are", onClick, href, to, sx }) {
   return (
     <Button
-      component={href ? "a" : "button"}
+      component={to ? RouterLink : href ? "a" : "button"}
       href={href}
+      to={to}
       onClick={onClick}
       variant="outlined"
       endIcon={
@@ -116,7 +118,7 @@ export default function AboutHomestead({
     </>
   ),
   ctaLabel = "Who We Are",
-  ctaHref = "#about",
+  ctaHref = "/about",
   smallImage = smallImg,
   tallImage = tallImg,
 }) {
@@ -363,7 +365,7 @@ export default function AboutHomestead({
             </Typography>
 
             <PillLink
-              href={ctaHref}
+              to={ctaHref}
               sx={{
                 opacity: animateText ? 1 : 0,
                 transform: animateText ? "translateY(0)" : "translateY(12px)",
