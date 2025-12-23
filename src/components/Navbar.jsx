@@ -15,6 +15,7 @@ import {
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import logoUrl from "../assets/logo.png";
+import { Link as RouterLink } from "react-router-dom";
 
 function PillAction({ variant = "contained", children, onClick, sx }) {
   return (
@@ -121,8 +122,8 @@ export default function Navbar() {
         >
           {/* Brand */}
           <Box
-            component="a"
-            href="#top"
+            component={RouterLink}
+            to="/"
             sx={{
               display: "flex",
               alignItems: "center",
