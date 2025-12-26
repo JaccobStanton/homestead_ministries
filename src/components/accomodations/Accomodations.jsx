@@ -385,6 +385,7 @@ export default function Accommodations({
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <CardPillAction
               variant="contained"
+              to="/accommodations"
               sx={{
                 "&:hover": { transform: "translateY(-1px)" },
                 opacity: headerInView ? 1 : 0,
@@ -441,11 +442,12 @@ export default function Accommodations({
               transitionDelay: "140ms",
             }}
           >
-            <StayCard
-              image={card2Img}
-              contentVisible={cardInView[1]}
-              title="Portabello Place"
-              description="Our primitive campsite for those who like to hike in and rough it just a little—this secluded site is a short walk from base, with room for up to three small tents."
+          <StayCard
+            image={card2Img}
+            contentVisible={cardInView[1]}
+            viewDetailsTo="/accommodations/portabello-place"
+            title="Portabello Place"
+            description="Our primitive campsite for those who like to hike in and rough it just a little—this secluded site is a short walk from base, with room for up to three small tents."
               price="$20"
               priceSuffix="per night"
               beds="Tent/camper"
@@ -465,6 +467,7 @@ export default function Accommodations({
         >
           <CardPillAction
             variant="contained"
+            to="/accommodations"
             sx={{
               "&:hover": { transform: "translateY(-1px)" },
               opacity: headerInView ? 1 : 0,
