@@ -345,20 +345,15 @@ export default function About() {
                   >
                     {section.body}
                   </Typography>
+
+                  {index === 0 ? (
+                    <PillLink to="/about-frank">Frank's Story</PillLink>
+                  ) : null}
                 </Box>
               </Box>
             ))}
           </Box>
 
-          <Box
-            sx={{
-              mt: { xs: 6, sm: 7, md: 8 },
-              display: "flex",
-              justifyContent: "flex-start",
-            }}
-          >
-            <PillLink to="/about-frank">Frank's Story</PillLink>
-          </Box>
         </Container>
       </Box>
     </>
