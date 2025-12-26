@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
 import img1 from "../../assets/services/guest_cabin.webp";
@@ -13,9 +14,12 @@ function CardPillAction({
   sx,
   showArrow = true,
   disabled = false,
+  to,
 }) {
   return (
     <Button
+      component={to ? RouterLink : undefined}
+      to={to}
       variant={variant}
       disabled={disabled}
       endIcon={
@@ -90,6 +94,7 @@ const items = [
     title: "Stay a Night (or More)",
     body: "From our cozy tiny cabin with a lookout deck to primitive hike-in campsites, you'll find comfort with just the right amount of rustic.",
     image: img1,
+    ctaTo: "/accommodations/lion-manes-lodge",
   },
   {
     title: "Event/Wedding Venue",
@@ -328,6 +333,7 @@ export default function ThingsToDo() {
                     variant="contained"
                     disabled={item.disableCta}
                     showArrow={!item.disableCta}
+                    to={item.ctaTo}
                   >
                     {item.cta || "Learn More"}
                   </CardPillAction>
