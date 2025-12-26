@@ -90,6 +90,8 @@ export default function Footer() {
                 >
                   <IconButton
                     aria-label="Facebook"
+                    component="a"
+                    href="https://www.facebook.com/share/1EP1H4Hmgh/?mibextid=wwXIfr"
                     sx={{
                       color: "rgba(255,255,255,0.88)",
                       border: "1px solid rgba(255,255,255,0.18)",
@@ -103,6 +105,8 @@ export default function Footer() {
                   </IconButton>
                   <IconButton
                     aria-label="Instagram"
+                    component="a"
+                    href="https://www.instagram.com/littlefrank_free_man_?igsh=cmp2aTIxY2thZGpu"
                     sx={{
                       color: "rgba(255,255,255,0.88)",
                       border: "1px solid rgba(255,255,255,0.18)",
