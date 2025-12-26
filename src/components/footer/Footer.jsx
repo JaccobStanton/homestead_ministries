@@ -21,11 +21,7 @@ const footerColumns = [
   },
   {
     title: "Contact",
-    lines: [
-      "whittingtonhomestead25@gmail.com",
-      "Frank: 217-454-5169",
-      "Nicole: 217-853-9539",
-    ],
+    lines: ["Frank: 217-454-5169", "Nicole: 217-853-9539"],
   },
 ];
 
@@ -101,7 +97,9 @@ export default function Footer() {
                       height: { xs: 36, sm: 40 },
                     }}
                   >
-                    <FacebookRoundedIcon sx={{ fontSize: { xs: 18, sm: 20 } }} />
+                    <FacebookRoundedIcon
+                      sx={{ fontSize: { xs: 18, sm: 20 } }}
+                    />
                   </IconButton>
                   <IconButton
                     aria-label="Instagram"
@@ -157,9 +155,22 @@ export default function Footer() {
             <Typography sx={{ fontSize: { xs: 13, sm: 14 } }}>
               Created by:
             </Typography>
-            <Typography sx={{ fontWeight: 600, fontSize: { xs: 13, sm: 14 } }}>
+            <Box
+              component="a"
+              href="mailto:jaccobstanton@gmail.com"
+              sx={{
+                fontWeight: 600,
+                fontSize: { xs: 13, sm: 14 },
+                color: "rgba(255,255,255,0.82)",
+                textDecoration: "none",
+                "&:hover": {
+                  color: "rgba(255,255,255,0.98)",
+                  textDecoration: "underline",
+                },
+              }}
+            >
               Stanton Studio - Web Design
-            </Typography>
+            </Box>
           </Box>
         </Box>
       </Container>
