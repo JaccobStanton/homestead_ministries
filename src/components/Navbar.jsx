@@ -17,11 +17,20 @@ import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import logoUrl from "../assets/logo.png";
 import { Link as RouterLink } from "react-router-dom";
 
-function PillAction({ variant = "contained", children, onClick, sx }) {
+function PillAction({
+  variant = "contained",
+  children,
+  onClick,
+  sx,
+  component,
+  href,
+}) {
   return (
     <Button
       variant={variant}
       onClick={onClick}
+      component={component}
+      href={href}
       endIcon={
         <Box
           aria-hidden
@@ -161,7 +170,16 @@ export default function Navbar() {
               <PillAction variant="contained">Book Now</PillAction>
               <PillAction
                 variant="outlined"
+                component="a"
+                href="mailto:whittingtonhomestead25@gmail.com"
                 sx={{
+                  borderColor: "rgba(255,255,255,0.75)",
+                  borderWidth: 1.5,
+                  color: "var(--btn-outline-text)",
+                  "& .nav-arrow": {
+                    backgroundColor: "rgba(132, 164, 119, 0.22)",
+                    borderColor: "rgba(39,58,36,0.12)",
+                  },
                   "&:hover": {
                     backgroundColor: "var(--btn-filled-bg-hover)",
                     color: "var(--btn-filled-text)",
@@ -187,11 +205,11 @@ export default function Navbar() {
                 height: 46,
                 borderRadius: "999px",
                 border: "1px solid rgba(255,255,255,0.22)",
-                backgroundColor: "#e0e0e0",
+                backgroundColor: "var(--btn-filled-bg)",
                 backdropFilter: "blur(10px)",
-                color: "rgba(255,255,255,0.92)",
+                color: "var(--btn-filled-text)",
                 "&:hover": {
-                  backgroundColor: "rgba(17, 21, 19, 0.45)",
+                  backgroundColor: "var(--btn-filled-bg-hover)",
                   borderColor: "rgba(255,255,255,0.32)",
                 },
               }}
@@ -203,46 +221,90 @@ export default function Navbar() {
       </Container>
 
       {/* Drawer */}
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            width: 320,
+            backgroundColor: "rgba(81, 116, 73, 0.86)",
+            backdropFilter: "blur(16px)",
+            color: "rgba(255,255,255,0.92)",
+            borderLeft: "1px solid rgba(255,255,255,0.14)",
+            boxShadow: "-12px 0 28px rgba(0,0,0,0.25)",
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0,
+          },
+        }}
+      >
         <Box
           sx={{
-            width: 320,
             p: 2,
-            backgroundColor: "rgba(12, 15, 14, 0.98)",
             height: "100%",
-            color: "white",
+            display: "flex",
+            flexDirection: "column",
           }}
           role="presentation"
         >
-          <Typography sx={{ fontWeight: 700, letterSpacing: 1.2, mb: 1 }}>
+          <Typography
+            sx={{
+              fontWeight: 700,
+              letterSpacing: 1.4,
+              textTransform: "uppercase",
+              fontSize: { xs: 12, sm: 13 },
+              color: "rgba(255,255,255,0.8)",
+              mb: 1,
+            }}
+          >
             Menu
           </Typography>
 
           <List sx={{ p: 0 }}>
-            {["Template", "Accommodation", "Book Now", "Contact Us"].map(
-              (label) => (
-                <ListItemButton
-                  key={label}
-                  onClick={() => setOpen(false)}
-                  sx={{
-                    borderRadius: 2,
-                    "&:hover": { backgroundColor: "rgba(255,255,255,0.06)" },
+            {[
+              { label: "About", to: "/#about" },
+              { label: "Features", to: "/#things-to-do" },
+              { label: "Accommodations", to: "/#accommodations" },
+              { label: "Features", to: "/#features" },
+              { label: "Activities", to: "/#activities" },
+              { label: "Membership", to: "/#membership" },
+            ].map((item, index) => (
+              <ListItemButton
+                key={`${item.label}-${index}`}
+                component={RouterLink}
+                to={item.to}
+                onClick={() => setOpen(false)}
+                sx={{
+                  borderRadius: 2.5,
+                  transition: "background-color 150ms ease",
+                  "&:hover": {
+                    backgroundColor: "rgba(255,255,255,0.14)",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{
+                    sx: {
+                      fontWeight: 600,
+                      fontSize: { xs: 15, sm: 16 },
+                      color: "rgba(255,255,255,0.94)",
+                    },
                   }}
-                >
-                  <ListItemText
-                    primary={label}
-                    primaryTypographyProps={{
-                      sx: { fontWeight: 600, color: "rgba(255,255,255,0.9)" },
-                    }}
-                  />
-                </ListItemButton>
-              )
-            )}
+                />
+              </ListItemButton>
+            ))}
           </List>
 
           <Box sx={{ mt: 2, display: "grid", gap: 1 }}>
             <PillAction variant="contained">Book Now</PillAction>
-            <PillAction variant="outlined">Contact Us</PillAction>
+            <PillAction
+              variant="outlined"
+              component="a"
+              href="mailto:whittingtonhomestead25@gmail.com"
+            >
+              Contact Us
+            </PillAction>
           </Box>
         </Box>
       </Drawer>
