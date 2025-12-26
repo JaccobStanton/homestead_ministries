@@ -178,10 +178,16 @@ export default function Hero() {
             <PillAction
               variant="outlined"
               sx={{
+                "& .hero-arrow": {
+                  backgroundColor: "rgba(132, 164, 119, 0.22)",
+                  borderColor: "rgba(39,58,36,0.12)",
+                },
+                borderColor: "rgba(255,255,255,0.75)",
+                borderWidth: 1.5,
                 "&:hover": {
                   backgroundColor: "var(--btn-filled-bg-hover)",
                   color: "var(--btn-filled-text)",
-                  borderColor: "rgba(255,255,255,0.18)",
+                  borderColor: "rgba(255,255,255,0.75)",
                   transform: "translateY(-1px)",
                 },
                 "&:hover .hero-arrow": {
