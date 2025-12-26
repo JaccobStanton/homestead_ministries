@@ -7,36 +7,45 @@ import img2 from "../../assets/services/teepee.webp";
 import img3 from "../../assets/services/tattoo.webp";
 import img4 from "../../assets/services/kayak.webp";
 
-function CardPillAction({ variant = "contained", children, sx }) {
+function CardPillAction({
+  variant = "contained",
+  children,
+  sx,
+  showArrow = true,
+  disabled = false,
+}) {
   return (
     <Button
       variant={variant}
+      disabled={disabled}
       endIcon={
-        <Box
-          aria-hidden
-          className="card-arrow"
-          sx={{
-            ml: 0.25,
-            width: 34,
-            height: 34,
-            borderRadius: "999px",
-            display: "grid",
-            placeItems: "center",
-            backgroundColor:
-              variant === "contained"
-                ? "rgba(132, 164, 119, 0.22)"
-                : "rgba(255,255,255,0.10)",
-            border:
-              variant === "contained"
-                ? "1px solid rgba(39,58,36,0.12)"
-                : "1px solid rgba(255,255,255,0.18)",
+        showArrow ? (
+          <Box
+            aria-hidden
+            className="card-arrow"
+            sx={{
+              ml: 0.25,
+              width: 34,
+              height: 34,
+              borderRadius: "999px",
+              display: "grid",
+              placeItems: "center",
+              backgroundColor:
+                variant === "contained"
+                  ? "rgba(132, 164, 119, 0.22)"
+                  : "rgba(255,255,255,0.10)",
+              border:
+                variant === "contained"
+                  ? "1px solid rgba(39,58,36,0.12)"
+                  : "1px solid rgba(255,255,255,0.18)",
 
-            transition:
-              "background-color 170ms ease, border-color 170ms ease, transform 170ms ease",
-          }}
-        >
-          <ArrowOutwardRoundedIcon sx={{ fontSize: 18 }} />
-        </Box>
+              transition:
+                "background-color 170ms ease, border-color 170ms ease, transform 170ms ease",
+            }}
+          >
+            <ArrowOutwardRoundedIcon sx={{ fontSize: 18 }} />
+          </Box>
+        ) : undefined
       }
       sx={[
         {
@@ -50,6 +59,12 @@ function CardPillAction({ variant = "contained", children, sx }) {
           borderWidth: 1,
           minHeight: 46,
           "& .MuiButton-endIcon": { ml: 1 },
+          "&.Mui-disabled": {
+            color: "var(--btn-filled-text)",
+            backgroundColor: "var(--btn-filled-bg)",
+            borderColor: "rgba(39,58,36,0.18)",
+            opacity: 1,
+          },
           "&:hover .card-arrow": {
             backgroundColor:
               variant === "contained"
@@ -93,6 +108,8 @@ const items = [
     body: "Ready to hit the river? We’ve got kayaks and a nearby drop-in point. Or stretch your legs on our private trail.",
     image: img4,
     position: "center 75%",
+    cta: "Coming Soon",
+    disableCta: true,
   },
 ];
 
@@ -307,8 +324,12 @@ export default function ThingsToDo() {
                 </Typography>
 
                 <Box sx={{ mt: "auto" }}>
-                  <CardPillAction variant="contained">
-                    Learn More
+                  <CardPillAction
+                    variant="contained"
+                    disabled={item.disableCta}
+                    showArrow={!item.disableCta}
+                  >
+                    {item.cta || "Learn More"}
                   </CardPillAction>
                 </Box>
               </Box>
