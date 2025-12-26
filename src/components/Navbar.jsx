@@ -15,7 +15,7 @@ import {
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import logoUrl from "../assets/logo.png";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
 function PillAction({
   variant = "contained",
@@ -85,8 +85,15 @@ function PillAction({
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const { pathname } = useLocation();
+  const forceScrolled = pathname.startsWith("/accommodations");
 
   React.useEffect(() => {
+    if (forceScrolled) {
+      setScrolled(true);
+      return undefined;
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 0);
     };
@@ -94,7 +101,9 @@ export default function Navbar() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceScrolled]);
+
+  const isScrolled = forceScrolled || scrolled;
 
   return (
     <AppBar
@@ -105,15 +114,17 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: (theme) => theme.zIndex.appBar,
-        backgroundColor: scrolled ? "rgba(81, 116, 73, 0.72)" : "rgba(0,0,0,0)",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        boxShadow: scrolled ? "0 8px 22px rgba(0,0,0,0.16)" : "none",
+        backgroundColor: isScrolled
+          ? "rgba(81, 116, 73, 0.72)"
+          : "rgba(0,0,0,0)",
+        backdropFilter: isScrolled ? "blur(12px)" : "none",
+        boxShadow: isScrolled ? "0 8px 22px rgba(0,0,0,0.16)" : "none",
         backgroundImage: "none",
-        borderTopLeftRadius: scrolled ? 0 : "inherit",
-        borderTopRightRadius: scrolled ? 0 : "inherit",
-        borderBottomLeftRadius: scrolled ? 0 : "inherit",
-        borderBottomRightRadius: scrolled ? 0 : "inherit",
-        borderBottom: scrolled
+        borderTopLeftRadius: isScrolled ? 0 : "inherit",
+        borderTopRightRadius: isScrolled ? 0 : "inherit",
+        borderBottomLeftRadius: isScrolled ? 0 : "inherit",
+        borderBottomRightRadius: isScrolled ? 0 : "inherit",
+        borderBottom: isScrolled
           ? "1px solid rgba(255,255,255,0.12)"
           : "1px solid transparent",
         transition: "background-color 220ms ease, border-color 220ms ease",
@@ -263,7 +274,7 @@ export default function Navbar() {
           <List sx={{ p: 0 }}>
             {[
               { label: "About", to: "/#about" },
-              { label: "Features", to: "/#things-to-do" },
+              { label: "Host an Event", to: "/#things-to-do" },
               { label: "Accommodations", to: "/#accommodations" },
               { label: "Features", to: "/#features" },
               { label: "Activities", to: "/#activities" },
