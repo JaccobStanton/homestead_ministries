@@ -1,5 +1,7 @@
 import * as React from "react";
-import { Box, Container, Typography, Stack, Divider } from "@mui/material";
+import { Box, Container, Typography, Stack, Divider, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
 import img1 from "../../assets/accomodations/accom1.webp";
 import img2 from "../../assets/accomodations/lion1.webp";
@@ -9,6 +11,67 @@ import img5 from "../../assets/accomodations/accom21.webp";
 
 const gallery = [img1, img2, img3, img4, img5];
 
+function CardPillAction({ variant = "contained", children, sx, to, href }) {
+  return (
+    <Button
+      component={to ? RouterLink : href ? "a" : "button"}
+      to={to}
+      href={href}
+      variant={variant}
+      endIcon={
+        <Box
+          aria-hidden
+          className="card-arrow"
+          sx={{
+            ml: 0.25,
+            width: 34,
+            height: 34,
+            borderRadius: "999px",
+            display: "grid",
+            placeItems: "center",
+            backgroundColor:
+              variant === "contained"
+                ? "rgba(132, 164, 119, 0.22)"
+                : "rgba(255,255,255,0.10)",
+            border:
+              variant === "contained"
+                ? "1px solid rgba(39,58,36,0.12)"
+                : "1px solid rgba(255,255,255,0.18)",
+            transition:
+              "background-color 170ms ease, border-color 170ms ease, transform 170ms ease",
+          }}
+        >
+          <ArrowOutwardRoundedIcon sx={{ fontSize: 18 }} />
+        </Box>
+      }
+      sx={[
+        {
+          gap: 0.75,
+          px: "var(--btn-px)",
+          py: "var(--btn-py)",
+          borderWidth: variant === "outlined" ? 1 : 0,
+          minHeight: 46,
+          "& .MuiButton-endIcon": { ml: 1 },
+          "&:hover .card-arrow": {
+            backgroundColor:
+              variant === "contained"
+                ? "rgba(59, 86, 53, 0.45)"
+                : "rgba(255,255,255,0.16)",
+            borderColor:
+              variant === "contained"
+                ? "rgba(39,58,36,0.35)"
+                : "rgba(255,255,255,0.28)",
+            transform: "translateX(2px)",
+          },
+        },
+        sx,
+      ]}
+    >
+      {children}
+    </Button>
+  );
+}
+
 export default function LionManesLodge() {
   const [activeImage, setActiveImage] = React.useState(gallery[0]);
 
@@ -17,7 +80,8 @@ export default function LionManesLodge() {
       component="section"
       sx={{
         position: "relative",
-        py: { xs: 9, sm: 11, md: 13 },
+        pt: { xs: 9, sm: 11, md: 13 },
+        pb: { xs: 3.5, sm: 4.5, md: 5.5 },
         backgroundColor: "rgba(255,255,255,0.96)",
       }}
     >
@@ -80,7 +144,7 @@ export default function LionManesLodge() {
                 overflow: "hidden",
                 border: "1px solid rgba(16,28,22,0.10)",
                 backgroundColor: "rgba(255,255,255,0.90)",
-                boxShadow: "0 22px 70px rgba(0,0,0,0.12)",
+                boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
                 aspectRatio: { xs: "4/3", md: "16/10" },
                 position: "relative",
               }}
@@ -154,6 +218,10 @@ export default function LionManesLodge() {
                 </Box>
               ))}
             </Box>
+
+            <Box sx={{ mt: 2.4 }}>
+              <CardPillAction variant="contained">Book Now</CardPillAction>
+            </Box>
           </Box>
 
           <Box
@@ -161,7 +229,7 @@ export default function LionManesLodge() {
               borderRadius: "var(--radius)",
               border: "1px solid rgba(16,28,22,0.10)",
               backgroundColor: "rgba(255,255,255,0.90)",
-              boxShadow: "0 22px 70px rgba(0,0,0,0.12)",
+              boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
               p: { xs: 2.4, sm: 3, md: 3.5 },
             }}
           >
