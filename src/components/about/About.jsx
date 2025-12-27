@@ -345,15 +345,10 @@ export default function About() {
                   >
                     {section.body}
                   </Typography>
-
-                  {index === 0 ? (
-                    <PillLink to="/about-frank">Frank's Story</PillLink>
-                  ) : null}
                 </Box>
               </Box>
             ))}
           </Box>
-
         </Container>
       </Box>
     </>
