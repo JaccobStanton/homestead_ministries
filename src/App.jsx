@@ -3,10 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import SiteLayout from "./layouts/SiteLayout";
 import Home from "./layouts/Home";
 import About from "./components/about/About";
-import AboutFrank from "./components/about/AboutFrank";
 import AccommodationsAll from "./components/accomodations/AccommodationsAll";
 import LionManesLodge from "./components/accomodations/LionManesLodge";
 import PortabelloPlace from "./components/accomodations/PortabelloPlace";
+import WeddingVenue from "./components/services/WeddingVenue";
+import Tattoos from "./components/services/Tattoos";
 // import About from "./pages/About";
 // import NotFound from "./pages/NotFound";
 
@@ -16,7 +17,8 @@ export default function App() {
       <Route element={<SiteLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/about-frank" element={<AboutFrank />} />
+        <Route path="/wedding-venue" element={<WeddingVenue />} />
+        <Route path="/tattoos" element={<Tattoos />} />
         <Route path="/accommodations" element={<AccommodationsAll />} />
         <Route
           path="/accommodations/lion-manes-lodge"
