@@ -16,8 +16,6 @@ import img1 from "../../assets/features/friendly.webp";
 import img2 from "../../assets/features/security.webp";
 import img3 from "../../assets/features/kitchen.webp";
 import img4 from "../../assets/features/cozy.webp";
-// import img5 from "../../assets/features/fire.webp";
-// import img6 from "../../assets/activities/tattoo.webp";
 import img7 from "../../assets/features/fire.webp";
 import img8 from "../../assets/features/games.webp";
 
@@ -47,18 +45,7 @@ const items = [
     icon: BedRoundedIcon,
     image: img4,
   },
-  //   {
-  //     title: "Clean & Well-Maintained Bathrooms",
-  //     body: "Bright, tidy spaces with fresh essentials ready to go.",
-  //     icon: ShowerRoundedIcon,
-  //     image: img5,
-  //   },
-  //   {
-  //     title: "Free High-Speed Wi-Fi Connectivity",
-  //     body: "Reliable connection for streaming, calls, or remote work.",
-  //     icon: WifiRoundedIcon,
-  //     image: img6,
-  //   },
+
   {
     title: "Firepit Access",
     body: "Evenings by the fire with s'mores and starry skies.",
