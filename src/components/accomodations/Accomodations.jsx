@@ -387,7 +387,11 @@ export default function Accommodations({
               variant="contained"
               to="/accommodations"
               sx={{
-                "&:hover": { transform: "translateY(-1px)" },
+                border: "1px solid rgba(39, 58, 36, 0.30)",
+                "&:hover": {
+                  transform: "translateY(-1px)",
+                  borderColor: "rgba(39, 58, 36, 0.45)",
+                },
                 opacity: headerInView ? 1 : 0,
                 transform: headerInView ? "translateY(0)" : "translateY(12px)",
                 transition: "opacity 700ms ease, transform 700ms ease",
@@ -469,7 +473,11 @@ export default function Accommodations({
             variant="contained"
             to="/accommodations"
             sx={{
-              "&:hover": { transform: "translateY(-1px)" },
+              border: "1px solid rgba(39, 58, 36, 0.30)",
+              "&:hover": {
+                transform: "translateY(-1px)",
+                borderColor: "rgba(39, 58, 36, 0.45)",
+              },
               opacity: headerInView ? 1 : 0,
               transform: headerInView ? "translateY(0)" : "translateY(12px)",
               transition: "opacity 700ms ease, transform 700ms ease",

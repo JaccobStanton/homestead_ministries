@@ -56,18 +56,19 @@ function CardPillAction({
           gap: 0.75,
           px: "var(--btn-px)",
           py: "var(--btn-py)",
-          border:
-            variant === "contained"
-              ? "1px solid rgba(39,58,36,0.18)"
-              : "1px solid rgba(39,58,36,0.30)",
+          borderStyle: "solid",
           borderWidth: 1,
+          borderColor: "rgba(39, 58, 36, 0.30)",
           minHeight: 46,
           "& .MuiButton-endIcon": { ml: 1 },
           "&.Mui-disabled": {
             color: "var(--btn-filled-text)",
             backgroundColor: "var(--btn-filled-bg)",
-            borderColor: "rgba(39,58,36,0.18)",
+            borderColor: "rgba(39, 58, 36, 0.30)",
             opacity: 1,
+          },
+          "&:hover": {
+            borderColor: "rgba(39, 58, 36, 0.45)",
           },
           "&:hover .card-arrow": {
             backgroundColor:
@@ -101,12 +102,14 @@ const items = [
     body: "Host your ceremony in our hand-built teepee or celebrate in the fully stocked Mycellium Summit barn. Tattoos for the wedding party? We’ve got that, too.",
     image: img2,
     position: "center 35%",
+    ctaTo: "/wedding-venue",
   },
   {
     title: "Tattoo Appointments",
     body: "Book a private session with our resident artist, Little Frank. Appointments are for members only—and spots fill fast.",
     image: img3,
     position: "center 35%",
+    ctaTo: "/tattoos",
   },
   {
     title: "Nature and Recreation",

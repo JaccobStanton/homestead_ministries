@@ -47,9 +47,14 @@ function CardPillAction({ variant = "contained", children, sx, to, href }) {
           gap: 0.75,
           px: "var(--btn-px)",
           py: "var(--btn-py)",
-          borderWidth: variant === "outlined" ? 1 : 0,
+          borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: "rgba(39, 58, 36, 0.30)",
           minHeight: 46,
           "& .MuiButton-endIcon": { ml: 1 },
+          "&:hover": {
+            borderColor: "rgba(39, 58, 36, 0.45)",
+          },
           "&:hover .card-arrow": {
             backgroundColor:
               variant === "contained"
