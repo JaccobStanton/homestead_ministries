@@ -64,9 +64,74 @@ export default function Features({
   eyebrow = "Features & Facilities",
   title = "Everything you need for an amazing get-away",
 }) {
+  const sectionRef = React.useRef(null);
+  const cardRefs = React.useRef([]);
+  const [inView, setInView] = React.useState(false);
+  const [cardInView, setCardInView] = React.useState([]);
+
+  React.useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) {
+      return undefined;
+    }
+
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!items.length) {
+      return undefined;
+    }
+
+    if (typeof IntersectionObserver === "undefined") {
+      setCardInView(Array(items.length).fill(true));
+      return undefined;
+    }
+
+    setCardInView(Array(items.length).fill(false));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const index = Number(entry.target.dataset.cardIndex);
+          setCardInView((prev) => {
+            const next = [...prev];
+            next[index] = true;
+            return next;
+          });
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Box
       component="section"
+      ref={sectionRef}
       sx={{
         position: "relative",
         py: { xs: 9, sm: 11, md: 13 },
@@ -83,6 +148,9 @@ export default function Features({
               letterSpacing: "0.14em",
               textTransform: "uppercase",
               fontSize: { xs: 12, sm: 12, md: 13 },
+              opacity: inView ? 1 : 0,
+              transform: inView ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 700ms ease, transform 700ms ease",
             }}
           >
             {eyebrow}
@@ -98,6 +166,10 @@ export default function Features({
               fontSize: { xs: 36, sm: 48, md: 60 },
               lineHeight: { xs: 1.08, md: 1.03 },
               letterSpacing: -0.6,
+              opacity: inView ? 1 : 0,
+              transform: inView ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 700ms ease, transform 700ms ease",
+              transitionDelay: "120ms",
             }}
           >
             {title}
@@ -116,9 +188,13 @@ export default function Features({
             },
           }}
         >
-          {items.map((item) => (
+          {items.map((item, index) => (
             <Box
               key={item.title}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              data-card-index={index}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -183,6 +259,12 @@ export default function Features({
                     fontWeight: 600,
                     fontSize: { xs: 20, sm: 22, md: 24 },
                     lineHeight: 1.2,
+                    opacity: cardInView[index] ? 1 : 0,
+                    transform: cardInView[index]
+                      ? "translateY(0)"
+                      : "translateY(12px)",
+                    transition: "opacity 700ms ease, transform 700ms ease",
+                    transitionDelay: "140ms",
                   }}
                 >
                   {item.title}
@@ -193,6 +275,12 @@ export default function Features({
                     color: "rgba(11, 20, 16, 0.70)",
                     fontSize: { xs: 14, sm: 15, md: 16 },
                     lineHeight: 1.6,
+                    opacity: cardInView[index] ? 1 : 0,
+                    transform: cardInView[index]
+                      ? "translateY(0)"
+                      : "translateY(12px)",
+                    transition: "opacity 700ms ease, transform 700ms ease",
+                    transitionDelay: "220ms",
                   }}
                 >
                   {item.body}
