@@ -85,7 +85,7 @@ export default function LionManesLodge() {
       component="section"
       sx={{
         position: "relative",
-        pt: { xs: 9, sm: 11, md: 13 },
+        pt: { xs: 12, sm: 11, md: 13 },
         pb: { xs: 3.5, sm: 4.5, md: 5.5 },
         backgroundColor: "rgba(255,255,255,0.96)",
       }}
