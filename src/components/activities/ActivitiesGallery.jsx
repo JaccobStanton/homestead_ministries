@@ -65,7 +65,7 @@ export default function ActivitiesGallery({
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                fontSize: { xs: 12, sm: 12, md: 13 },
+                fontSize: { xs: 12, sm: 12, md: 13, lg: 14, xl: 15 },
               }}
             >
               {eyebrow}
@@ -78,7 +78,7 @@ export default function ActivitiesGallery({
                 color: "rgba(11, 20, 16, 0.92)",
                 fontWeight: 500,
                 whiteSpace: "pre-line",
-                fontSize: { xs: 36, sm: 48, md: 60 },
+                fontSize: { xs: 36, sm: 48, md: 60, lg: 72, xl: 80 },
                 lineHeight: { xs: 1.08, md: 1.03 },
                 letterSpacing: -0.6,
               }}
@@ -89,9 +89,9 @@ export default function ActivitiesGallery({
             <Typography
               sx={{
                 mt: 2.2,
-                maxWidth: 520,
+                maxWidth: "100%",
                 color: "rgba(11, 20, 16, 0.70)",
-                fontSize: { xs: 14, sm: 15, md: 16 },
+                fontSize: { xs: 14, sm: 15, md: 16, lg: 18, xl: 19 },
                 lineHeight: 1.65,
               }}
             >
@@ -149,7 +149,7 @@ export default function ActivitiesGallery({
                     sx={{
                       color: "rgba(11, 20, 16, 0.92)",
                       fontWeight: 600,
-                      fontSize: { xs: 20, sm: 22, md: 24 },
+                      fontSize: { xs: 20, sm: 22, md: 24, lg: 28, xl: 32 },
                       lineHeight: 1.2,
                       textDecoration: "underline",
                       textDecorationColor: "#6A8C5F",
