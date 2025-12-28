@@ -249,7 +249,7 @@ export default function Tattoos() {
       <Box
         component="section"
         sx={{
-          minHeight: "100vh",
+          minHeight: { xs: "70vh", md: "80vh" },
           position: "relative",
           overflow: "hidden",
           display: "grid",
@@ -477,10 +477,7 @@ export default function Tattoos() {
             </CardPillAction>
           </Box>
 
-          <Box
-            ref={galleryRef}
-            sx={{ mt: { xs: 5, sm: 6, md: 7 } }}
-          >
+          <Box ref={galleryRef} sx={{ mt: { xs: 5, sm: 6, md: 7 } }}>
             <Typography
               sx={{
                 color: "rgba(11, 20, 16, 0.60)",

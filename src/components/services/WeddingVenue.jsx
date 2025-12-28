@@ -265,8 +265,9 @@ export default function WeddingVenue() {
                   border: "1px solid rgba(16,28,22,0.10)",
                   backgroundColor: "rgba(255,255,255,0.90)",
                   boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
-                  aspectRatio: { xs: "3/2", sm: "16/10", md: "16/9" },
-                  maxHeight: { xs: 280, sm: 340, md: 420 },
+                  maxWidth: { xs: "100%", md: 640, lg: 700 },
+                  aspectRatio: { xs: "4/3", sm: "4/3", md: "4/3" },
+                  maxHeight: { xs: 420, sm: 520, md: 680 },
                   position: "relative",
                 }}
               >
@@ -290,11 +291,14 @@ export default function WeddingVenue() {
                 sx={{
                   mt: 2,
                   width: "100%",
-                  display: "flex",
+                  maxWidth: { xs: "100%", md: 640, lg: 700 },
+                  display: "grid",
                   gap: 1.4,
-                  overflowX: "auto",
-                  pb: 0.5,
-                  WebkitOverflowScrolling: "touch",
+                  gridTemplateColumns: {
+                    xs: "repeat(2, minmax(0, 1fr))",
+                    sm: "repeat(3, minmax(0, 1fr))",
+                    md: "repeat(5, minmax(0, 1fr))",
+                  },
                 }}
               >
                 {gallery.map((src) => (
@@ -310,9 +314,7 @@ export default function WeddingVenue() {
                           : "1px solid rgba(16,28,22,0.12)",
                       cursor: "pointer",
                       position: "relative",
-                      height: { xs: 74, sm: 90 },
-                      minWidth: { xs: 90, sm: 120 },
-                      flex: "0 0 auto",
+                      aspectRatio: "4/3",
                     }}
                   >
                     <Box
