@@ -104,7 +104,7 @@ export default function Operation({
             sx={{
               color: "rgba(11, 20, 16, 0.70)",
               fontSize: { xs: 14, sm: 15, md: 16 },
-              lineHeight: 1.75,
+              lineHeight: { xs: 1.75, lg: 1.6, xl: 1.55 },
               display: "grid",
               gap: { xs: 2.2, sm: 2.6, md: 3 },
               opacity: inView ? 1 : 0,
