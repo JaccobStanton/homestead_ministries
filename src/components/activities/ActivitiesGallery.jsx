@@ -2,7 +2,6 @@ import * as React from "react";
 import { Box, Container, Typography } from "@mui/material";
 
 import img1 from "../../assets/activities/good_views.webp";
-import img2 from "../../assets/activities/kayak.webp";
 import img3 from "../../assets/activities/river_access.webp";
 import img4 from "../../assets/activities/trail.webp";
 import img5 from "../../assets/activities/river_view.webp";
@@ -14,13 +13,7 @@ const items = [
     offset: { md: 0 },
   },
   {
-    title: "Ceremony Teepee",
-    image: img2,
-    offset: { md: 6 },
-    position: "center 70%",
-  },
-  {
-    title: "Creekside Views",
+    title: "River Access",
     image: img3,
     offset: { md: 3 },
   },
@@ -30,7 +23,7 @@ const items = [
     offset: { md: 8 },
   },
   {
-    title: "Woodland Retreat",
+    title: "Hiking/Exploring",
     image: img5,
     offset: { md: 4 },
   },
@@ -39,7 +32,7 @@ const items = [
 export default function ActivitiesGallery({
   eyebrow = "A Place To Unwind",
   title = "Let the landscape carry the story",
-  body = "Wander past the venues, cabins, and hidden corners that make Whittington Homestead feel like a true retreat. Each space is designed to slow the pace and invite you to stay awhile.",
+  body = "Wander past the venues, cabin, and hidden corners that make Whittington Homestead feel like a true retreat. Each space is designed to slow the pace and invite you to stay awhile.",
 }) {
   return (
     <Box
@@ -150,17 +143,22 @@ export default function ActivitiesGallery({
                   />
                 </Box>
 
-                <Typography
-                  variant="h3"
-                  sx={{
-                    color: "rgba(11, 20, 16, 0.92)",
-                    fontWeight: 600,
-                    fontSize: { xs: 20, sm: 22, md: 24 },
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {item.title}
-                </Typography>
+                <Box sx={{ textAlign: "center" }}>
+                  <Typography
+                    variant="h3"
+                    sx={{
+                      color: "rgba(11, 20, 16, 0.92)",
+                      fontWeight: 600,
+                      fontSize: { xs: 20, sm: 22, md: 24 },
+                      lineHeight: 1.2,
+                      textDecoration: "underline",
+                      textDecorationColor: "#6A8C5F",
+                      textUnderlineOffset: "6px",
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                </Box>
               </Box>
             ))}
           </Box>
