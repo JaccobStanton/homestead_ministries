@@ -104,7 +104,7 @@ function StayCard({
         border: "1px solid rgba(16,28,22,0.10)",
         boxShadow: "0 26px 80px rgba(0,0,0,0.16)",
         backgroundColor: "rgba(0,0,0,0.25)",
-        minHeight: { xs: 420, sm: 520, md: 620 },
+        minHeight: { xs: 420, sm: 520, md: 620, lg: 720, xl: 800 },
         display: "flex",
         flexDirection: "column",
       }}
