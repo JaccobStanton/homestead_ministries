@@ -16,9 +16,38 @@ export default function Operation({
   ],
   closing = "That’s it! No renewals, no fine print—just an easy way to enjoy everything we offer within our private community.",
 }) {
+  const sectionRef = React.useRef(null);
+  const [inView, setInView] = React.useState(false);
+
+  React.useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) {
+      return undefined;
+    }
+
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Box
       component="section"
+      ref={sectionRef}
       sx={{
         position: "relative",
         py: { xs: 9, sm: 11, md: 13 },
@@ -34,6 +63,9 @@ export default function Operation({
               letterSpacing: "0.14em",
               textTransform: "uppercase",
               fontSize: { xs: 12, sm: 12, md: 13 },
+              opacity: inView ? 1 : 0,
+              transform: inView ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 700ms ease, transform 700ms ease",
             }}
           >
             {eyebrow}
@@ -49,6 +81,10 @@ export default function Operation({
               fontSize: { xs: 36, sm: 48, md: 60 },
               lineHeight: { xs: 1.08, md: 1.03 },
               letterSpacing: -0.6,
+              opacity: inView ? 1 : 0,
+              transform: inView ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 700ms ease, transform 700ms ease",
+              transitionDelay: "120ms",
             }}
           >
             {title}
@@ -71,6 +107,10 @@ export default function Operation({
               lineHeight: 1.75,
               display: "grid",
               gap: { xs: 2.2, sm: 2.6, md: 3 },
+              opacity: inView ? 1 : 0,
+              transform: inView ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 700ms ease, transform 700ms ease",
+              transitionDelay: "240ms",
             }}
           >
             {paragraphs.map((text) => (
