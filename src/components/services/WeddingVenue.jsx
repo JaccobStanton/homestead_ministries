@@ -265,7 +265,6 @@ export default function WeddingVenue() {
                   border: "1px solid rgba(16,28,22,0.10)",
                   backgroundColor: "rgba(255,255,255,0.90)",
                   boxShadow: "0 12px 32px rgba(0,0,0,0.12)",
-                  maxWidth: { xs: "100%", md: 640, lg: 700 },
                   aspectRatio: { xs: "4/3", sm: "4/3", md: "4/3" },
                   maxHeight: { xs: 420, sm: 520, md: 680 },
                   position: "relative",
@@ -291,7 +290,6 @@ export default function WeddingVenue() {
                 sx={{
                   mt: 2,
                   width: "100%",
-                  maxWidth: { xs: "100%", md: 640, lg: 700 },
                   display: "grid",
                   gap: 1.4,
                   gridTemplateColumns: {
