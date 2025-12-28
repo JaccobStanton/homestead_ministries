@@ -1,11 +1,15 @@
 import * as React from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import heroUrl from "../../assets/hero/hero.webp";
 
-function PillAction({ variant = "contained", children, sx }) {
+function PillAction({ variant = "contained", children, sx, to, href }) {
   return (
     <Button
+      component={to ? RouterLink : href ? "a" : "button"}
+      to={to}
+      href={href}
       variant={variant}
       endIcon={
         <Box
@@ -179,6 +183,7 @@ export default function Hero() {
             <PillAction variant="contained">Book Your Stay</PillAction>
             <PillAction
               variant="outlined"
+              to="/#accommodations"
               sx={{
                 "& .hero-arrow": {
                   backgroundColor: "rgba(132, 164, 119, 0.22)",
