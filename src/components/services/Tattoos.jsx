@@ -291,13 +291,13 @@ export default function Tattoos() {
             },
           }}
         >
-          <Box sx={{ maxWidth: { xs: "100%", md: 820 } }}>
+          <Box sx={{ maxWidth: "100%" }}>
             <Typography
               variant="h1"
               sx={{
                 color: "rgba(255,255,255,0.96)",
                 fontWeight: 500,
-                fontSize: { xs: 44, sm: 58, md: 74 },
+                fontSize: { xs: 44, sm: 58, md: 74, lg: 82, xl: 90 },
                 lineHeight: { xs: 1.05, md: 1.02 },
                 opacity: 0,
                 transform: "translateY(12px)",
@@ -317,10 +317,10 @@ export default function Tattoos() {
             <Typography
               sx={{
                 mt: 2.2,
-                maxWidth: 720,
+                maxWidth: "100%",
                 color: "rgba(255,255,255,0.88)",
                 fontWeight: 600,
-                fontSize: { xs: 14, sm: 15, md: 16 },
+                fontSize: { xs: 14, sm: 15, md: 16, lg: 18, xl: 19 },
                 opacity: 0,
                 transform: "translateY(12px)",
                 animation: "tattooHeroFadeUp 700ms ease forwards",
@@ -405,7 +405,7 @@ export default function Tattoos() {
                 <Box
                   sx={{
                     order: { xs: 2, md: index % 2 === 0 ? 2 : 1 },
-                    maxWidth: 560,
+                    maxWidth: "100%",
                   }}
                 >
                   <Typography
@@ -414,7 +414,7 @@ export default function Tattoos() {
                       fontWeight: 600,
                       letterSpacing: "0.14em",
                       textTransform: "uppercase",
-                      fontSize: { xs: 12, sm: 12, md: 13 },
+                      fontSize: { xs: 12, sm: 12, md: 13, lg: 14, xl: 15 },
                       opacity: sectionInView[index] ? 1 : 0,
                       transform: sectionInView[index]
                         ? "translateY(0)"
@@ -431,7 +431,7 @@ export default function Tattoos() {
                       mt: 1.2,
                       color: "rgba(11, 20, 16, 0.92)",
                       fontWeight: 500,
-                      fontSize: { xs: 30, sm: 40, md: 48 },
+                      fontSize: { xs: 30, sm: 40, md: 48, lg: 54, xl: 60 },
                       lineHeight: { xs: 1.08, md: 1.03 },
                       letterSpacing: -0.6,
                       opacity: sectionInView[index] ? 1 : 0,
@@ -449,7 +449,7 @@ export default function Tattoos() {
                     sx={{
                       mt: 2,
                       color: "rgba(11, 20, 16, 0.70)",
-                      fontSize: { xs: 14, sm: 15, md: 16 },
+                      fontSize: { xs: 14, sm: 15, md: 16, lg: 18, xl: 19 },
                       lineHeight: 1.65,
                       opacity: sectionInView[index] ? 1 : 0,
                       transform: sectionInView[index]
@@ -484,7 +484,7 @@ export default function Tattoos() {
                 fontWeight: 600,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                fontSize: { xs: 12, sm: 12, md: 13 },
+                fontSize: { xs: 12, sm: 12, md: 13, lg: 14, xl: 15 },
                 mb: 1,
                 opacity: galleryInView ? 1 : 0,
                 transform: galleryInView ? "translateY(0)" : "translateY(12px)",
@@ -498,7 +498,7 @@ export default function Tattoos() {
               sx={{
                 color: "rgba(11, 20, 16, 0.92)",
                 fontWeight: 500,
-                fontSize: { xs: 26, sm: 32, md: 38 },
+                fontSize: { xs: 26, sm: 32, md: 38, lg: 42, xl: 48 },
                 lineHeight: { xs: 1.12, md: 1.05 },
                 mb: { xs: 2.5, sm: 3 },
                 opacity: galleryInView ? 1 : 0,

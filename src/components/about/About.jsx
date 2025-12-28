@@ -181,13 +181,13 @@ export default function About() {
             },
           }}
         >
-          <Box sx={{ maxWidth: { xs: "100%", md: 820 } }}>
+          <Box sx={{ maxWidth: "100%" }}>
             <Typography
               variant="h1"
               sx={{
                 color: "rgba(255,255,255,0.96)",
                 fontWeight: 500,
-                fontSize: { xs: 44, sm: 58, md: 74 },
+                fontSize: { xs: 44, sm: 58, md: 74, lg: 82, xl: 90 },
                 lineHeight: { xs: 1.05, md: 1.02 },
                 opacity: 0,
                 transform: "translateY(12px)",
@@ -207,10 +207,10 @@ export default function About() {
             <Typography
               sx={{
                 mt: 2.2,
-                maxWidth: 720,
+                maxWidth: "100%",
                 color: "rgba(255,255,255,0.88)",
                 fontWeight: 600,
-                fontSize: { xs: 14, sm: 15, md: 16 },
+                fontSize: { xs: 14, sm: 15, md: 16, lg: 18, xl: 19 },
                 opacity: 0,
                 transform: "translateY(12px)",
                 animation: "aboutHeroFadeUp 700ms ease forwards",
@@ -289,7 +289,7 @@ export default function About() {
                 <Box
                   sx={{
                     order: { xs: 2, md: index % 2 === 0 ? 2 : 1 },
-                    maxWidth: 560,
+                    maxWidth: "100%",
                   }}
                 >
                   <Typography
@@ -298,7 +298,7 @@ export default function About() {
                       fontWeight: 600,
                       letterSpacing: "0.14em",
                       textTransform: "uppercase",
-                      fontSize: { xs: 12, sm: 12, md: 13 },
+                      fontSize: { xs: 12, sm: 12, md: 13, lg: 14, xl: 15 },
                       opacity: sectionInView[index] ? 1 : 0,
                       transform: sectionInView[index]
                         ? "translateY(0)"
@@ -315,7 +315,7 @@ export default function About() {
                       mt: 1.2,
                       color: "rgba(11, 20, 16, 0.92)",
                       fontWeight: 500,
-                      fontSize: { xs: 30, sm: 40, md: 48 },
+                      fontSize: { xs: 30, sm: 40, md: 48, lg: 54, xl: 60 },
                       lineHeight: { xs: 1.08, md: 1.03 },
                       letterSpacing: -0.6,
                       opacity: sectionInView[index] ? 1 : 0,
@@ -333,7 +333,7 @@ export default function About() {
                     sx={{
                       mt: 2,
                       color: "rgba(11, 20, 16, 0.70)",
-                      fontSize: { xs: 14, sm: 15, md: 16 },
+                      fontSize: { xs: 14, sm: 15, md: 16, lg: 18, xl: 19 },
                       lineHeight: 1.65,
                       opacity: sectionInView[index] ? 1 : 0,
                       transform: sectionInView[index]
