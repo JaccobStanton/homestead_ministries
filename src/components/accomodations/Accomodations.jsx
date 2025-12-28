@@ -30,8 +30,8 @@ function CardPillAction({ variant = "contained", children, sx, to, href }) {
           className="card-arrow"
           sx={{
             ml: 0.25,
-            width: 34,
-            height: 34,
+            width: { xs: 28, sm: 34 },
+            height: { xs: 28, sm: 34 },
             borderRadius: "999px",
             display: "grid",
             placeItems: "center",
@@ -47,17 +47,18 @@ function CardPillAction({ variant = "contained", children, sx, to, href }) {
               "background-color 170ms ease, border-color 170ms ease, transform 170ms ease",
           }}
         >
-          <ArrowOutwardRoundedIcon sx={{ fontSize: 18 }} />
+          <ArrowOutwardRoundedIcon sx={{ fontSize: { xs: 16, sm: 18 } }} />
         </Box>
       }
       sx={[
         {
           gap: 0.75,
-          px: "var(--btn-px)",
-          py: "var(--btn-py)",
+          px: { xs: 1.4, sm: "var(--btn-px)" },
+          py: { xs: 0.7, sm: "var(--btn-py)" },
+          fontSize: { xs: 13, sm: 15, md: 16 },
           borderWidth: variant === "outlined" ? 1 : 0,
-          minHeight: 46,
-          "& .MuiButton-endIcon": { ml: 1 },
+          minHeight: { xs: 40, sm: 46 },
+          "& .MuiButton-endIcon": { ml: { xs: 0.5, sm: 1 } },
           "&:hover .card-arrow": {
             backgroundColor:
               variant === "contained"
