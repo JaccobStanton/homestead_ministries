@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Box, Container, Typography, Stack, Divider, Button } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Stack,
+  Divider,
+  Button,
+} from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
@@ -336,6 +343,35 @@ export default function LionManesLodge() {
               <Typography>$80/night (Sunday–Thursday)</Typography>
               <Typography>$100/night (Friday & Saturday)</Typography>
             </Stack>
+            <Divider
+              sx={{
+                my: { xs: 2, sm: 2.5 },
+                borderColor: "rgba(16,28,22,0.12)",
+              }}
+            />
+
+            <Typography
+              sx={{
+                color: "rgba(11, 20, 16, 0.60)",
+                fontWeight: 600,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                fontSize: { xs: 12, sm: 12, md: 13 },
+              }}
+            >
+              Pets
+            </Typography>
+            <Stack
+              spacing={1.2}
+              sx={{
+                mt: 1.6,
+                color: "rgba(11, 20, 16, 0.70)",
+                fontSize: { xs: 14, sm: 15, md: 16 },
+              }}
+            >
+              <Typography>Allowed (leashed and trained)</Typography>
+              <Typography>$25/per pet</Typography>
+            </Stack>
 
             <Divider
               sx={{
@@ -351,7 +387,6 @@ export default function LionManesLodge() {
                 fontSize: { xs: 14, sm: 15, md: 16 },
               }}
             >
-              <Typography>Pets allowed (leashed and trained)</Typography>
               <Typography>Smoking allowed</Typography>
               <Typography>Free parking, keypad entry</Typography>
             </Stack>
