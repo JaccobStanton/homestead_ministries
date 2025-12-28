@@ -15,7 +15,7 @@ import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 
 import card1Img from "../../assets/accomodations/accom1.webp";
-import card2Img from "../../assets/accomodations/fire.jpg";
+import card2Img from "../../assets/camp/camp1.webp";
 
 function CardPillAction({ variant = "contained", children, sx, to, href }) {
   return (
@@ -446,12 +446,12 @@ export default function Accommodations({
               transitionDelay: "140ms",
             }}
           >
-          <StayCard
-            image={card2Img}
-            contentVisible={cardInView[1]}
-            viewDetailsTo="/accommodations/portabello-place"
-            title="Portabello Place"
-            description="Our primitive campsite for those who like to hike in and rough it just a little—this secluded site is a short walk from base, with room for up to three small tents."
+            <StayCard
+              image={card2Img}
+              contentVisible={cardInView[1]}
+              viewDetailsTo="/accommodations/portabello-place"
+              title="Portabello Place"
+              description="Our primitive campsite for those who like to hike in and rough it just a little—this secluded site is a short walk from base, with room for up to three small tents."
               price="$20"
               priceSuffix="per night"
               beds="Tent/camper"
