@@ -1,13 +1,22 @@
 import * as React from "react";
-import { Box, Container, Typography, Stack, Divider, Button } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Stack,
+  Divider,
+  Button,
+} from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
-import img1 from "../../assets/accomodations/accom21.webp";
-import img2 from "../../assets/accomodations/accom1.webp";
-import img3 from "../../assets/accomodations/fire.jpg";
+import img1 from "../../assets/camp/camp1.webp";
+import img2 from "../../assets/camp/camp2.webp";
+import img3 from "../../assets/camp/camp3.webp";
+import img4 from "../../assets/camp/camp4.webp";
+import img5 from "../../assets/camp/camp5.webp";
 
-const gallery = [img1, img2, img3];
+const gallery = [img1, img2, img3, img4, img5];
 
 function CardPillAction({ variant = "contained", children, sx, to, href }) {
   return (
@@ -260,7 +269,10 @@ export default function PortabelloPlace() {
             </Typography>
 
             <Divider
-              sx={{ my: { xs: 2, sm: 2.5 }, borderColor: "rgba(16,28,22,0.12)" }}
+              sx={{
+                my: { xs: 2, sm: 2.5 },
+                borderColor: "rgba(16,28,22,0.12)",
+              }}
             />
 
             <Typography
@@ -287,7 +299,10 @@ export default function PortabelloPlace() {
             </Stack>
 
             <Divider
-              sx={{ my: { xs: 2, sm: 2.5 }, borderColor: "rgba(16,28,22,0.12)" }}
+              sx={{
+                my: { xs: 2, sm: 2.5 },
+                borderColor: "rgba(16,28,22,0.12)",
+              }}
             />
 
             <Typography
