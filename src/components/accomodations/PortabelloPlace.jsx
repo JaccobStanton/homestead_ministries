@@ -150,9 +150,11 @@ export default function PortabelloPlace() {
             alignItems: "start",
           }}
         >
-          <Box>
+          <Box sx={{ minWidth: 0 }}>
             <Box
               sx={{
+                width: "100%",
+                maxWidth: "100%",
                 borderRadius: "var(--radius)",
                 overflow: "hidden",
                 border: "1px solid rgba(16,28,22,0.10)",
@@ -181,6 +183,8 @@ export default function PortabelloPlace() {
             <Box
               sx={{
                 mt: 2,
+                width: "100%",
+                maxWidth: "100%",
                 display: "flex",
                 gap: 1.4,
                 overflowX: "auto",
@@ -239,6 +243,8 @@ export default function PortabelloPlace() {
 
           <Box
             sx={{
+              minWidth: 0,
+              maxWidth: "100%",
               borderRadius: "var(--radius)",
               border: "1px solid rgba(16,28,22,0.10)",
               backgroundColor: "rgba(255,255,255,0.90)",
