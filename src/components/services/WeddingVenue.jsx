@@ -260,6 +260,7 @@ export default function WeddingVenue() {
             <Box>
               <Box
                 sx={{
+                  width: "100%",
                   borderRadius: "var(--radius)",
                   overflow: "hidden",
                   border: "1px solid rgba(16,28,22,0.10)",
