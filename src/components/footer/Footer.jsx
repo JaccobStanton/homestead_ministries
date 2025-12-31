@@ -7,7 +7,7 @@ import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 const footerColumns = [
   {
     title: "Location",
-    lines: ["3133 Youal Gibson road,", "Holladay, TN 38341"],
+    lines: ["Holladay, TN 38341"],
   },
   {
     title: "Contact Hours",
@@ -21,7 +21,7 @@ const footerColumns = [
   },
   {
     title: "Contact",
-    lines: ["Frank: 217-454-5169", "Nicole: 217-853-9539"],
+    lines: ["whittingtonhomestead25@gmail.com"],
   },
 ];
 
