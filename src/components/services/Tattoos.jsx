@@ -351,6 +351,18 @@ export default function Tattoos() {
         <Container sx={{ px: { xs: 2, sm: 3, md: 6 } }}>
           <Box
             sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              mb: { xs: 3, sm: 4 },
+            }}
+          >
+            <CardPillAction variant="contained" href="/booking">
+              Book Appointment
+            </CardPillAction>
+          </Box>
+
+          <Box
+            sx={{
               display: "grid",
               gap: { xs: 5, md: 7 },
             }}
@@ -472,7 +484,7 @@ export default function Tattoos() {
               display: "flex",
             }}
           >
-            <CardPillAction variant="contained">
+            <CardPillAction variant="contained" href="/booking">
               Book Appointment
             </CardPillAction>
           </Box>
