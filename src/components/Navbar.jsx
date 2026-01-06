@@ -280,6 +280,7 @@ export default function Navbar() {
               { label: "Features", to: "/#features" },
               { label: "Activities", to: "/#activities" },
               { label: "Membership", to: "/#membership" },
+              { label: "Tattoo Appointment", to: "/booking" },
             ].map((item, index) => (
               <ListItemButton
                 key={`${item.label}-${index}`}
@@ -309,7 +310,7 @@ export default function Navbar() {
           </List>
 
           <Box sx={{ mt: 2, display: "grid", gap: 1 }}>
-            <PillAction variant="contained">Book Now</PillAction>
+            <PillAction variant="contained">Book Stay</PillAction>
             <PillAction
               variant="outlined"
               component="a"
