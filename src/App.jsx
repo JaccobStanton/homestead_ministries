@@ -8,6 +8,7 @@ import LionManesLodge from "./components/accomodations/LionManesLodge";
 import PortabelloPlace from "./components/accomodations/PortabelloPlace";
 import WeddingVenue from "./components/services/WeddingVenue";
 import Tattoos from "./components/services/Tattoos";
+import CalendlyInline from "./components/booking/CalendlyInline";
 // import About from "./pages/About";
 // import NotFound from "./pages/NotFound";
 
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/wedding-venue" element={<WeddingVenue />} />
         <Route path="/tattoos" element={<Tattoos />} />
+        <Route path="/booking" element={<CalendlyInline />} />
         <Route path="/accommodations" element={<AccommodationsAll />} />
         <Route
           path="/accommodations/lion-manes-lodge"
