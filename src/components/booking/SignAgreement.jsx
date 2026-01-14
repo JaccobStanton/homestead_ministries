@@ -7,6 +7,7 @@ import {
   TextField,
   CircularProgress,
 } from "@mui/material";
+import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { useNavigate } from "react-router-dom";
 
 export default function SignAgreement() {
@@ -193,15 +194,44 @@ export default function SignAgreement() {
               Enter your info to begin signing
             </Typography>
 
-            <Box sx={{ display: "grid", gap: 2 }}>
+            <Box
+              sx={{
+                display: "grid",
+                gap: 2,
+                "& .MuiInputLabel-root": {
+                  color: "rgba(11, 20, 16, 0.70)",
+                },
+                "& .MuiInputLabel-root.Mui-focused": {
+                  color: "rgba(39, 58, 36, 0.85)",
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "rgba(39, 58, 36, 0.30)",
+                },
+                "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "rgba(39, 58, 36, 0.30)",
+                  },
+                "& .MuiInputBase-input": {
+                  color: "rgba(11, 20, 16, 0.92)",
+                },
+                "& .MuiInputBase-input::placeholder": {
+                  color: "rgba(11, 20, 16, 0.60)",
+                  opacity: 1,
+                },
+                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  {
+                    borderColor: "rgba(39, 58, 36, 0.45)",
+                  },
+              }}
+            >
               <TextField
-                label="Full Name"
+                placeholder="Full Name"
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
                 fullWidth
               />
               <TextField
-                label="Email Address"
+                placeholder="Email Address"
                 value={clientEmail}
                 onChange={(e) => setClientEmail(e.target.value)}
                 fullWidth
@@ -218,7 +248,66 @@ export default function SignAgreement() {
               variant="contained"
               onClick={handleCreateAgreement}
               disabled={!canStart || loadingDoc}
-              sx={{ mt: 2 }}
+              endIcon={
+                <Box
+                  aria-hidden
+                  className="agreement-arrow"
+                  sx={{
+                    ml: 0.25,
+                    width: { xs: 28, sm: 34 },
+                    height: { xs: 28, sm: 34 },
+                    borderRadius: "999px",
+                    display: "grid",
+                    placeItems: "center",
+                    backgroundColor: "rgba(132, 164, 119, 0.22)",
+                    border: "1px solid rgba(39,58,36,0.12)",
+                    transition:
+                      "background-color 170ms ease, border-color 170ms ease, transform 170ms ease",
+                  }}
+                >
+                  <ArrowOutwardRoundedIcon
+                    sx={{ fontSize: { xs: 16, sm: 18 } }}
+                  />
+                </Box>
+              }
+              sx={{
+                mt: 2,
+                gap: 0.75,
+                px: { xs: 1.4, sm: "var(--btn-px)" },
+                py: { xs: 0.7, sm: "var(--btn-py)" },
+                fontSize: { xs: 13, sm: 15, md: 16 },
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderColor: "rgba(39, 58, 36, 0.30)",
+                minHeight: { xs: 40, sm: 46 },
+                "& .MuiButton-endIcon": { ml: { xs: 0.5, sm: 1 } },
+                "&:hover": {
+                  borderColor: "rgba(39, 58, 36, 0.45)",
+                  transform: "translateY(-1px)",
+                },
+                color: "var(--btn-filled-text)",
+                "& .MuiSvgIcon-root": {
+                  color: "var(--btn-filled-text)",
+                },
+                "&.Mui-disabled": {
+                  color: "rgba(11, 20, 16, 0.45)",
+                  borderColor: "rgba(39, 58, 36, 0.20)",
+                  opacity: 1,
+                },
+                "&.Mui-disabled .agreement-arrow": {
+                  backgroundColor: "rgba(132, 164, 119, 0.12)",
+                  borderColor: "rgba(39,58,36,0.10)",
+                  transform: "none",
+                },
+                "&.Mui-disabled .MuiSvgIcon-root": {
+                  color: "rgba(11, 20, 16, 0.45)",
+                },
+                "&:hover .agreement-arrow": {
+                  backgroundColor: "rgba(59, 86, 53, 0.45)",
+                  borderColor: "rgba(39,58,36,0.35)",
+                  transform: "translateX(2px)",
+                },
+              }}
             >
               {loadingDoc ? (
                 <>
