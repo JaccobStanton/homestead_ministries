@@ -87,7 +87,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
   const { pathname } = useLocation();
   const forceScrolled =
-    pathname.startsWith("/accommodations") || pathname === "/booking";
+    pathname.startsWith("/accommodations") ||
+    pathname === "/booking" ||
+    pathname === "/sign-agreement";
 
   React.useEffect(() => {
     if (forceScrolled) {
