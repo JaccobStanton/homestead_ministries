@@ -7,8 +7,7 @@ import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
 import ShieldRoundedIcon from "@mui/icons-material/ShieldRounded";
 import KitchenRoundedIcon from "@mui/icons-material/KitchenRounded";
 import BedRoundedIcon from "@mui/icons-material/BedRounded";
-// import ShowerRoundedIcon from "@mui/icons-material/ShowerRounded";
-// import WifiRoundedIcon from "@mui/icons-material/WifiRounded";
+import WifiRoundedIcon from "@mui/icons-material/WifiRounded";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
 import SportsEsportsRoundedIcon from "@mui/icons-material/SportsEsportsRounded";
 
@@ -18,6 +17,7 @@ import img3 from "../../assets/features/kitchen.webp";
 import img4 from "../../assets/features/cozy.webp";
 import img7 from "../../assets/features/fire.webp";
 import img8 from "../../assets/features/games.webp";
+import img9 from "../../assets/features/wifi.webp";
 
 const items = [
   {
@@ -57,6 +57,12 @@ const items = [
     body: "Pool games and cozy options for a slower night in.",
     icon: SportsEsportsRoundedIcon,
     image: img8,
+  },
+  {
+    title: "Free High-Speed Wi-Fi Connectivity",
+    body: "Stay connected when you need it with reliable, fast Wi-Fi.",
+    icon: WifiRoundedIcon,
+    image: img9,
   },
 ];
 
