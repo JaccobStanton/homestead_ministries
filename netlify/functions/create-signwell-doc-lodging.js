@@ -48,7 +48,7 @@ export async function handler(event) {
       };
     }
 
-    if (data?.error || data?.errors?.length || data?.message) {
+    if (data?.error || data?.errors?.length || data?.error_message) {
       return {
         statusCode: 400,
         body: JSON.stringify({
