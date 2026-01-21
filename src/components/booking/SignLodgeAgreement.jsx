@@ -70,11 +70,17 @@ export default function SignLodgeAgreement() {
         throw new Error(baseError);
       }
 
-      if (!data?.embedded_signing_url) {
+      const embeddedSigningUrl =
+        data?.embedded_signing_url ||
+        data?.recipients?.[0]?.embedded_signing_url ||
+        data?.recipients?.[0]?.embedded_signing_urls?.[0]?.url ||
+        data?.recipients?.[0]?.embedded_signing_urls?.[0];
+
+      if (!embeddedSigningUrl) {
         throw new Error("No embedded_signing_url returned.");
       }
 
-      setSigningUrl(data.embedded_signing_url);
+      setSigningUrl(embeddedSigningUrl);
     } catch (err) {
       console.log("Create SignWell doc error:", err);
       const message =
