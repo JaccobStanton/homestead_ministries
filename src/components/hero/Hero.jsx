@@ -4,12 +4,13 @@ import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import heroUrl from "../../assets/hero/hero.webp";
 
-function PillAction({ variant = "contained", children, sx, to, href }) {
+function PillAction({ variant = "contained", children, sx, to, href, onClick }) {
   return (
     <Button
       component={to ? RouterLink : href ? "a" : "button"}
       to={to}
       href={href}
+      onClick={onClick}
       variant={variant}
       endIcon={
         <Box
@@ -180,7 +181,18 @@ export default function Hero() {
               },
             }}
           >
-            <PillAction variant="contained">Book Your Stay</PillAction>
+            <PillAction
+              variant="contained"
+              onClick={() => {
+                window.open(
+                  "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }}
+            >
+              Book Your Stay
+            </PillAction>
             <PillAction
               variant="outlined"
               to="/#accommodations"

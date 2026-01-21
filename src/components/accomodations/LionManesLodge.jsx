@@ -18,12 +18,22 @@ import img5 from "../../assets/accomodations/accom21.webp";
 
 const gallery = [img1, img2, img3, img4, img5];
 
-function CardPillAction({ variant = "contained", children, sx, to, href }) {
+function CardPillAction({
+  variant = "contained",
+  children,
+  sx,
+  to,
+  href,
+  onClick,
+}) {
   return (
     <Button
       component={to ? RouterLink : href ? "a" : "button"}
       to={to}
       href={href}
+      onClick={onClick}
+      target={href ? "_blank" : undefined}
+      rel={href ? "noopener noreferrer" : undefined}
       variant={variant}
       endIcon={
         <Box
@@ -236,7 +246,12 @@ export default function LionManesLodge() {
             </Box>
 
             <Box sx={{ mt: 2.4 }}>
-              <CardPillAction variant="contained">Book Now</CardPillAction>
+              <CardPillAction
+                variant="contained"
+                href="https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0"
+              >
+                Book Now
+              </CardPillAction>
             </Box>
           </Box>
 

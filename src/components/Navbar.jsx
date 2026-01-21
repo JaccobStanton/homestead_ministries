@@ -24,6 +24,7 @@ function PillAction({
   sx,
   component,
   href,
+  to,
 }) {
   return (
     <Button
@@ -31,6 +32,7 @@ function PillAction({
       onClick={onClick}
       component={component}
       href={href}
+      to={to}
       endIcon={
         <Box
           aria-hidden
@@ -181,7 +183,18 @@ export default function Navbar() {
           {/* Right side */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1.1 }}>
-              <PillAction variant="contained">Book Now</PillAction>
+              <PillAction
+                variant="contained"
+                onClick={() => {
+                  window.open(
+                    "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0",
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                }}
+              >
+                Book Now
+              </PillAction>
               <PillAction
                 variant="outlined"
                 component="a"
@@ -312,7 +325,19 @@ export default function Navbar() {
           </List>
 
           <Box sx={{ mt: 2, display: "grid", gap: 1 }}>
-            <PillAction variant="contained">Book Stay</PillAction>
+            <PillAction
+              variant="contained"
+              onClick={() => {
+                window.open(
+                  "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+                setOpen(false);
+              }}
+            >
+              Book Stay
+            </PillAction>
             <PillAction
               variant="outlined"
               component="a"

@@ -17,12 +17,22 @@ import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import card1Img from "../../assets/accomodations/accom1.webp";
 import card2Img from "../../assets/camp/camp1.webp";
 
-function CardPillAction({ variant = "contained", children, sx, to, href }) {
+function CardPillAction({
+  variant = "contained",
+  children,
+  sx,
+  to,
+  href,
+  onClick,
+}) {
   return (
     <Button
       component={to ? RouterLink : href ? "a" : "button"}
       to={to}
       href={href}
+      onClick={onClick}
+      target={href ? "_blank" : undefined}
+      rel={href ? "noopener noreferrer" : undefined}
       variant={variant}
       endIcon={
         <Box
@@ -264,6 +274,7 @@ function StayCard({
             <CardPillAction
               variant="outlined"
               onClick={onBookNow}
+              href="https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0"
               sx={{
                 "&:hover": {
                   backgroundColor: "rgba(205,230,216,0.30)",

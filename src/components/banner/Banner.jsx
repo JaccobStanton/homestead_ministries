@@ -10,6 +10,8 @@ function PillAction({ variant = "contained", children, sx, to, href }) {
       component={to ? RouterLink : href ? "a" : "button"}
       to={to}
       href={href}
+      target={href ? "_blank" : undefined}
+      rel={href ? "noopener noreferrer" : undefined}
       variant={variant}
       endIcon={
         <Box
@@ -206,7 +208,12 @@ export default function Banner() {
               },
             }}
           >
-            <PillAction variant="contained">Book Your Stay</PillAction>
+            <PillAction
+              variant="contained"
+              href="https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0"
+            >
+              Book Your Stay
+            </PillAction>
             <PillAction
               variant="outlined"
               to="/#accommodations"
