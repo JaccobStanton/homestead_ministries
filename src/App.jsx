@@ -10,6 +10,7 @@ import WeddingVenue from "./components/services/WeddingVenue";
 import Tattoos from "./components/services/Tattoos";
 import CalendlyInline from "./components/booking/CalendlyInline";
 import SignAgreement from "./components/booking/SignAgreement";
+import SignLodgeAgreement from "./components/booking/SignLodgeAgreement";
 // import About from "./pages/About";
 // import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/tattoos" element={<Tattoos />} />
         <Route path="/booking" element={<CalendlyInline />} />
         <Route path="/sign-agreement" element={<SignAgreement />} />
+        <Route path="/sign-lodge-agreement" element={<SignLodgeAgreement />} />
         <Route path="/accommodations" element={<AccommodationsAll />} />
         <Route
           path="/accommodations/lion-manes-lodge"

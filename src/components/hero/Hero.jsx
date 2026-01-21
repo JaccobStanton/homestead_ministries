@@ -183,13 +183,7 @@ export default function Hero() {
           >
             <PillAction
               variant="contained"
-              onClick={() => {
-                window.open(
-                  "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
-              }}
+              to="/sign-lodge-agreement"
             >
               Book Your Stay
             </PillAction>

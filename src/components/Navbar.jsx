@@ -91,7 +91,8 @@ export default function Navbar() {
   const forceScrolled =
     pathname.startsWith("/accommodations") ||
     pathname === "/booking" ||
-    pathname === "/sign-agreement";
+    pathname === "/sign-agreement" ||
+    pathname === "/sign-lodge-agreement";
 
   React.useEffect(() => {
     if (forceScrolled) {
@@ -185,13 +186,8 @@ export default function Navbar() {
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1.1 }}>
               <PillAction
                 variant="contained"
-                onClick={() => {
-                  window.open(
-                    "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0",
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
-                }}
+                component={RouterLink}
+                to="/sign-lodge-agreement"
               >
                 Book Now
               </PillAction>
@@ -327,14 +323,9 @@ export default function Navbar() {
           <Box sx={{ mt: 2, display: "grid", gap: 1 }}>
             <PillAction
               variant="contained"
-              onClick={() => {
-                window.open(
-                  "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
-                setOpen(false);
-              }}
+              component={RouterLink}
+              to="/sign-lodge-agreement"
+              onClick={() => setOpen(false)}
             >
               Book Stay
             </PillAction>

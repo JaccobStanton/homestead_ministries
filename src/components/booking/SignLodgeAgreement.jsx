@@ -10,7 +10,10 @@ import {
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import { useNavigate } from "react-router-dom";
 
-export default function SignAgreement() {
+const LODGIFY_URL =
+  "https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0";
+
+export default function SignLodgeAgreement() {
   const navigate = useNavigate();
   const mountRef = React.useRef(null);
 
@@ -41,7 +44,7 @@ export default function SignAgreement() {
 
     try {
       const res = await fetch(
-        "/.netlify/functions/create-signwell-doc-tattoo",
+        "/.netlify/functions/create-signwell-doc-lodging",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -49,13 +52,22 @@ export default function SignAgreement() {
             name: clientName.trim(),
             email: clientEmail.trim(),
           }),
-        },
+        }
       );
 
-      const data = await res.json();
+      const contentType = res.headers.get("content-type") || "";
+      let data = {};
+      if (contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        const text = await res.text();
+        data = { error: text };
+      }
 
       if (!res.ok) {
-        throw new Error(data?.error || "Failed to create agreement.");
+        const baseError =
+          data?.error || `Request failed with status ${res.status}.`;
+        throw new Error(baseError);
       }
 
       if (!data?.embedded_signing_url) {
@@ -65,7 +77,10 @@ export default function SignAgreement() {
       setSigningUrl(data.embedded_signing_url);
     } catch (err) {
       console.log("Create SignWell doc error:", err);
-      setCreatingDocError(err.message || "Something went wrong.");
+      const message =
+        err?.message ||
+        "Something went wrong. If running locally, use Netlify Dev so functions are available.";
+      setCreatingDocError(message);
     } finally {
       setLoadingDoc(false);
     }
@@ -86,7 +101,8 @@ export default function SignAgreement() {
           containerId: "signwell-container",
           events: {
             completed: () => {
-              navigate("/booking?signed=1");
+              window.open(LODGIFY_URL, "_blank", "noopener,noreferrer");
+              navigate("/accommodations");
             },
             closed: () => {
               // signer closed the window

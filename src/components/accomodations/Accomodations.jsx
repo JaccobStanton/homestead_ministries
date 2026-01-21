@@ -274,7 +274,7 @@ function StayCard({
             <CardPillAction
               variant="outlined"
               onClick={onBookNow}
-              href="https://whittingtonhomesteadministries.lodgify.com/en/all-properties/?adults=1&sort=price&children=0&infants=0&pets=0"
+              to="/sign-lodge-agreement"
               sx={{
                 "&:hover": {
                   backgroundColor: "rgba(205,230,216,0.30)",
