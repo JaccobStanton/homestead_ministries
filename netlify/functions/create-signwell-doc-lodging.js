@@ -48,7 +48,21 @@ export async function handler(event) {
       };
     }
 
-    const embedded_signing_url = data?.recipients?.[0]?.embedded_signing_url;
+    if (data?.error || data?.errors?.length || data?.message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: "SignWell API error",
+          details: data,
+        }),
+      };
+    }
+
+    const embedded_signing_url =
+      data?.embedded_signing_url ||
+      data?.recipients?.[0]?.embedded_signing_url ||
+      data?.recipients?.[0]?.embedded_signing_urls?.[0]?.url ||
+      data?.recipients?.[0]?.embedded_signing_urls?.[0];
 
     if (!embedded_signing_url) {
       return {
