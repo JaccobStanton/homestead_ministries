@@ -70,16 +70,26 @@ export default function SignLodgeAgreement() {
         throw new Error(baseError);
       }
 
+      let payload = data;
+      if (typeof data?.error === "string") {
+        try {
+          const parsed = JSON.parse(data.error);
+          payload = parsed;
+        } catch (parseError) {
+          // ignore parse errors and use the original payload
+        }
+      }
+
       const embeddedSigningUrl =
-        data?.embedded_signing_url ||
-        data?.recipients?.[0]?.embedded_signing_url ||
-        data?.recipients?.[0]?.embedded_signing_urls?.[0]?.url ||
-        data?.recipients?.[0]?.embedded_signing_urls?.[0];
+        payload?.embedded_signing_url ||
+        payload?.recipients?.[0]?.embedded_signing_url ||
+        payload?.recipients?.[0]?.embedded_signing_urls?.[0]?.url ||
+        payload?.recipients?.[0]?.embedded_signing_urls?.[0];
 
       if (!embeddedSigningUrl) {
         throw new Error(
           `No embedded_signing_url returned. Response: ${JSON.stringify(
-            data
+            payload
           )}`
         );
       }
