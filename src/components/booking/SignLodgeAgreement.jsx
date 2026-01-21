@@ -77,7 +77,11 @@ export default function SignLodgeAgreement() {
         data?.recipients?.[0]?.embedded_signing_urls?.[0];
 
       if (!embeddedSigningUrl) {
-        throw new Error("No embedded_signing_url returned.");
+        throw new Error(
+          `No embedded_signing_url returned. Response: ${JSON.stringify(
+            data
+          )}`
+        );
       }
 
       setSigningUrl(embeddedSigningUrl);

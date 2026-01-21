@@ -76,7 +76,10 @@ export async function handler(event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ embedded_signing_url }),
+      body: JSON.stringify({
+        embedded_signing_url,
+        recipients: data?.recipients,
+      }),
     };
   } catch (err) {
     return {
