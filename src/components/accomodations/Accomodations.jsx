@@ -482,13 +482,36 @@ export default function Accommodations({
           }}
         >
           <CardPillAction
-            variant="contained"
+            variant="outlined"
             to="/accommodations"
             sx={{
-              border: "1px solid rgba(39, 58, 36, 0.30)",
+              alignSelf: "flex-start",
+              color: "rgba(11, 20, 16, 0.92)",
+              borderColor: "rgba(39, 58, 36, 0.30)",
+              backgroundColor: "rgba(255,255,255,0.55)",
+              backdropFilter: "blur(6px)",
+              px: { xs: "var(--btn-px)", sm: "var(--btn-px)" },
+              py: { xs: "var(--btn-py)", sm: "var(--btn-py)" },
+              minHeight: { xs: 46, sm: 46 },
+              fontSize: { xs: "0.9375rem", sm: "0.9375rem" },
+              "& .MuiButton-endIcon": { ml: 1 },
+              "& .card-arrow": {
+                ml: 0,
+                width: 34,
+                height: 34,
+                backgroundColor: "rgba(132, 164, 119, 0.18)",
+                border: "1px solid rgba(39, 58, 36, 0.18)",
+              },
+              "& .card-arrow .MuiSvgIcon-root": { fontSize: 18 },
               "&:hover": {
-                transform: "translateY(-1px)",
                 borderColor: "rgba(39, 58, 36, 0.45)",
+                backgroundColor: "rgba(205, 230, 216, 0.55)",
+                transform: "translateY(-1px)",
+              },
+              "&:hover .card-arrow": {
+                transform: "translateX(2px)",
+                backgroundColor: "rgba(132, 164, 119, 0.26)",
+                borderColor: "rgba(39, 58, 36, 0.28)",
               },
               opacity: headerInView ? 1 : 0,
               transform: headerInView ? "translateY(0)" : "translateY(12px)",
