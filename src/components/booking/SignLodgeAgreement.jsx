@@ -52,7 +52,7 @@ export default function SignLodgeAgreement() {
             name: clientName.trim(),
             email: clientEmail.trim(),
           }),
-        }
+        },
       );
 
       const contentType = res.headers.get("content-type") || "";
@@ -89,8 +89,8 @@ export default function SignLodgeAgreement() {
       if (!embeddedSigningUrl) {
         throw new Error(
           `No embedded_signing_url returned. Response: ${JSON.stringify(
-            payload
-          )}`
+            payload,
+          )}`,
         );
       }
 
@@ -207,7 +207,8 @@ export default function SignLodgeAgreement() {
           }}
         >
           Please review and sign the agreement below. Once you finish, you’ll be
-          redirected to the booking page to pick your appointment time.
+          redirected to the booking page to pick the days you wish to stay with
+          us.
         </Typography>
 
         {/* STEP 1: Collect client details + create unique embedded signing url */}
