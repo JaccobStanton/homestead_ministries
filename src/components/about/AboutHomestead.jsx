@@ -367,6 +367,7 @@ export default function AboutHomestead({
             <PillLink
               to={ctaHref}
               sx={{
+                display: { xs: "none", md: "inline-flex" },
                 opacity: animateText ? 1 : 0,
                 transform: animateText ? "translateY(0)" : "translateY(12px)",
                 transition: "opacity 700ms ease, transform 700ms ease",
@@ -383,6 +384,27 @@ export default function AboutHomestead({
             </PillLink>
           </Box>
         </Box>
+
+        <PillLink
+          to={ctaHref}
+          sx={{
+            display: { xs: "inline-flex", md: "none" },
+            mt: { xs: 3, sm: 3.5 },
+            mb: 0,
+            opacity: animateText ? 1 : 0,
+            transform: animateText ? "translateY(0)" : "translateY(12px)",
+            transition: "opacity 700ms ease, transform 700ms ease",
+            transitionDelay: "140ms",
+            willChange: "opacity, transform",
+            "@media (prefers-reduced-motion: reduce)": {
+              transition: "none",
+              opacity: 1,
+              transform: "none",
+            },
+          }}
+        >
+          {ctaLabel}
+        </PillLink>
       </Container>
     </Box>
   );
