@@ -1,7 +1,6 @@
 // AboutHomestead.jsx
 import * as React from "react";
 import { Box, Container, Typography } from "@mui/material";
-import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
 import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
 import ShieldRoundedIcon from "@mui/icons-material/ShieldRounded";
@@ -93,7 +92,7 @@ export default function Features({
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(node);
@@ -124,7 +123,7 @@ export default function Features({
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     cardRefs.current.forEach((ref) => {
