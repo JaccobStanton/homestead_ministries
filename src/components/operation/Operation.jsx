@@ -102,10 +102,12 @@ export default function Operation({
         >
           <Box
             sx={{
+              alignSelf: { md: "start" },
               color: "rgba(11, 20, 16, 0.70)",
               fontSize: { xs: 14, sm: 15, md: 16 },
               lineHeight: { xs: 1.75, lg: 1.6, xl: 1.55 },
               display: "grid",
+              alignContent: "start",
               gap: { xs: 2.2, sm: 2.6, md: 3 },
               opacity: inView ? 1 : 0,
               transform: inView ? "translateY(0)" : "translateY(12px)",
