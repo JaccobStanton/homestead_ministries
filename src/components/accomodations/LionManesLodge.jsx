@@ -245,7 +245,12 @@ export default function LionManesLodge() {
               ))}
             </Box>
 
-            <Box sx={{ mt: 2.4 }}>
+            <Box
+              sx={{
+                mt: 2.4,
+                display: { xs: "none", md: "block" },
+              }}
+            >
               <CardPillAction
                 variant="contained"
                 to="/sign-lodge-agreement"
@@ -406,6 +411,18 @@ export default function LionManesLodge() {
               <Typography>Free parking, keypad entry</Typography>
             </Stack>
           </Box>
+        </Box>
+
+        <Box
+          sx={{
+            mt: { xs: 3, sm: 3.5 },
+            display: { xs: "flex", md: "none" },
+            justifyContent: "flex-start",
+          }}
+        >
+          <CardPillAction variant="contained" to="/sign-lodge-agreement">
+            Book Now
+          </CardPillAction>
         </Box>
       </Container>
     </Box>

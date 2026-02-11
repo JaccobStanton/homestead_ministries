@@ -22,9 +22,10 @@ import img10 from "../../assets/wedding/wedding10.webp";
 
 const gallery = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
-function CardPillAction({ variant = "contained", children, sx }) {
+function CardPillAction({ variant = "contained", children, sx, ...buttonProps }) {
   return (
     <Button
+      {...buttonProps}
       variant={variant}
       endIcon={
         <Box
@@ -87,6 +88,15 @@ function CardPillAction({ variant = "contained", children, sx }) {
 
 export default function WeddingVenue() {
   const [activeImage, setActiveImage] = React.useState(gallery[0]);
+  const weddingInquiryMailto = `mailto:whittingtonhomestead25@gmail.com?body=${encodeURIComponent(
+    `Hi Whittington Homestead!
+
+I would like to inquire about the wedding package that you offer. Are you able to give me more details at this time?
+
+Thanks!
+
+`,
+  )}`;
 
   return (
     <>
@@ -334,8 +344,19 @@ export default function WeddingVenue() {
                 ))}
               </Box>
 
-              <Box sx={{ mt: 2.4 }}>
-                <CardPillAction variant="contained">Book Now</CardPillAction>
+              <Box
+                sx={{
+                  mt: 2.4,
+                  display: { xs: "none", md: "block" },
+                }}
+              >
+                <CardPillAction
+                  variant="contained"
+                  component="a"
+                  href={weddingInquiryMailto}
+                >
+                  Book Now
+                </CardPillAction>
               </Box>
             </Box>
 
@@ -431,6 +452,22 @@ export default function WeddingVenue() {
                 <Typography>Reception Barn Add-On: Additional $300</Typography>
               </Stack>
             </Box>
+          </Box>
+
+          <Box
+            sx={{
+              mt: { xs: 3, sm: 3.5 },
+              display: { xs: "flex", md: "none" },
+              justifyContent: "flex-start",
+            }}
+          >
+            <CardPillAction
+              variant="contained"
+              component="a"
+              href={weddingInquiryMailto}
+            >
+              Book Now
+            </CardPillAction>
           </Box>
         </Container>
       </Box>
