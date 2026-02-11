@@ -351,7 +351,7 @@ export default function Tattoos() {
         <Container sx={{ px: { xs: 2, sm: 3, md: 6 } }}>
           <Box
             sx={{
-              display: "flex",
+              display: { xs: "none", md: "flex" },
               justifyContent: "flex-end",
               mb: { xs: 3, sm: 4 },
             }}
@@ -481,7 +481,7 @@ export default function Tattoos() {
           <Box
             sx={{
               mt: { xs: 4, sm: 5 },
-              display: "flex",
+              display: { xs: "flex", md: "none" },
             }}
           >
             <CardPillAction variant="contained" href="/booking">
