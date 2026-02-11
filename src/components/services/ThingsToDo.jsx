@@ -337,6 +337,20 @@ export default function ThingsToDo() {
                     disabled={item.disableCta}
                     showArrow={!item.disableCta}
                     to={item.ctaTo}
+                    sx={{
+                      gap: 0,
+                      px: { xs: "var(--btn-px)", sm: "var(--btn-px)" },
+                      py: { xs: "var(--btn-py)", sm: "var(--btn-py)" },
+                      minHeight: { xs: 46, sm: 46 },
+                      "& .MuiButton-endIcon": { ml: 1 },
+                      "& .card-arrow": {
+                        width: 34,
+                        height: 34,
+                      },
+                      "& .card-arrow .MuiSvgIcon-root": {
+                        fontSize: 18,
+                      },
+                    }}
                   >
                     {item.cta || "Learn More"}
                   </CardPillAction>
