@@ -13,7 +13,7 @@ const galleryImages = Object.entries(
   import.meta.glob("../../assets/tattoo/*.{webp,png,jpg,jpeg}", {
     eager: true,
     import: "default",
-  })
+  }),
 )
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([, src]) => src);
@@ -51,6 +51,18 @@ const sections = [
             lineHeight: 1.6,
           }}
         >
+          <li>
+            <Box component="span" sx={{ fontWeight: 700 }}>
+              Terry’s Tattoo 
+            </Box>{" "}
+            - Glasgow, Scotland
+          </li>
+          <li>
+            <Box component="span" sx={{ fontWeight: 700 }}>
+              Relentless Tattoo - Andy Engel’s Tattoo 
+            </Box>{" "}
+            - Germany
+          </li>
           <li>
             <Box component="span" sx={{ fontWeight: 700 }}>
               Trader Bob’s Tattoo
@@ -210,7 +222,7 @@ export default function Tattoos() {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     sectionRefs.current.forEach((ref) => {
@@ -238,7 +250,7 @@ export default function Tattoos() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(node);
