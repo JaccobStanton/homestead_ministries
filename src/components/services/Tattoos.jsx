@@ -368,7 +368,7 @@ export default function Tattoos() {
               mb: { xs: 3, sm: 4 },
             }}
           >
-            <CardPillAction variant="contained" href="/sign-agreement">
+            <CardPillAction variant="contained" href="/booking">
               Book Appointment
             </CardPillAction>
           </Box>
