@@ -9,7 +9,6 @@ import PortabelloPlace from "./components/accomodations/PortabelloPlace";
 import WeddingVenue from "./components/services/WeddingVenue";
 import Tattoos from "./components/services/Tattoos";
 import TattooBooking from "./components/booking/TattooBooking";
-import SignLodgeAgreement from "./components/booking/SignLodgeAgreement";
 // import About from "./pages/About";
 // import NotFound from "./pages/NotFound";
 
@@ -23,7 +22,6 @@ export default function App() {
         <Route path="/tattoos" element={<Tattoos />} />
         <Route path="/booking" element={<TattooBooking />} />
         <Route path="/sign-agreement" element={<Navigate to="/booking" replace />} />
-        <Route path="/sign-lodge-agreement" element={<SignLodgeAgreement />} />
         <Route path="/accommodations" element={<AccommodationsAll />} />
         <Route
           path="/accommodations/lion-manes-lodge"

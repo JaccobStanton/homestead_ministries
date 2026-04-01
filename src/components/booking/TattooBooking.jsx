@@ -1,25 +1,13 @@
 import * as React from "react";
-import {
-  Box,
-  Button,
-  Checkbox,
-  Collapse,
-  Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  FormControlLabel,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
-import { useNavigate } from "react-router-dom";
 
-function ContinueButton({ disabled, onClick }) {
+function EmailButton({ onClick, href }) {
   return (
     <Button
       variant="contained"
       onClick={onClick}
-      disabled={disabled}
+      href={href}
       endIcon={
         <Box
           aria-hidden
@@ -60,54 +48,20 @@ function ContinueButton({ disabled, onClick }) {
         },
       }}
     >
-      Continue
+      Email now
     </Button>
   );
 }
 
 export default function TattooBooking() {
-  const navigate = useNavigate();
-  const [expanded, setExpanded] = React.useState(false);
-  const [downloaded, setDownloaded] = React.useState(false);
-  const [consented, setConsented] = React.useState(false);
-  const [openPromptModal, setOpenPromptModal] = React.useState(false);
+  const emailBody =
+    "Hi my name is <your_name>, and I would like to book a tattoo appointment with Frank Whittington at Whittington Homestead Ministries.";
 
-  const emailBody = [
-    "Hi my name is <your_name> and I would like to book an appointment with Frank Whittington.",
-    "",
-    "Please list multiple dates you are available to meet for a consultation or tattoo appointment. (This helps us find a time that works best for you and the artist.) *",
-    "",
-    "What do you want to get? (Describe the tattoo concept clearly. *",
-    "",
-    "Symbols, themes, subject matter, size ideas.) *",
-    "",
-    "Where on your body will the tattoo be placed? (Be specific: left/right, inner/outer, upper/lower.) *",
-    "",
-    "Style Preference (Color, Grey, Unsure) *",
-    "",
-    "Is this a cover up? If yes, please describe what is currently there. *",
-    "",
-    "How much time would you like to book? *",
-    "",
-    "What is your ideal budget range? (Being honest helps determine feasibility and scheduling.) *",
-    "",
-    "REFERENCES AND VISUALS: If you have any reference photos/descriptions, please add them here: *",
-    "",
-    "Any other notes, concerns, or requests? (Pain tolerance, deadlines, meaning behind the tattoo, flexibility.) *",
-    "",
-    "Phone number for contact?",
-    "",
-    "**REMINDER:** You acknowledge that the Membership PDF is signed and attached to this email. You acknowledge that everything you are sending is truthful and accurate. Without the membership agreement signed and attached to this email, Whittington Homestead reserves the right to not process your tattoo appointment request.",
-  ].join("\n");
+  const mailtoHref = `mailto:whittingtonhomestead25@gmail.com?body=${encodeURIComponent(
+    emailBody,
+  )}`;
 
-  const mailtoHref = `mailto:whittingtonhomestead25@gmail.com?subject=${encodeURIComponent(
-    "Tattoo Appointment Request",
-  )}&body=${encodeURIComponent(emailBody)}`;
-
-  const canContinue = downloaded && consented;
-
-  function handleContinue() {
-    setOpenPromptModal(true);
+  function handleEmailNow() {
     window.location.href = mailtoHref;
   }
 
@@ -116,7 +70,7 @@ export default function TattooBooking() {
       component="section"
       sx={{
         pt: { xs: 12, sm: 13, md: 14 },
-        pb: { xs: 14, sm: 15, md: 16 },
+        pb: { xs: 10, sm: 11, md: 12 },
         backgroundColor: "rgba(255,255,255,0.96)",
       }}
     >
@@ -144,7 +98,7 @@ export default function TattooBooking() {
             maxWidth: 920,
           }}
         >
-          Membership consent is required before booking
+          Book your tattoo appointment
         </Typography>
 
         <Box
@@ -165,7 +119,7 @@ export default function TattooBooking() {
               fontSize: { xs: 16, sm: 17, md: 18 },
             }}
           >
-            Before you proceed
+            Appointment Request
           </Typography>
 
           <Typography
@@ -174,212 +128,44 @@ export default function TattooBooking() {
               color: "rgba(11, 20, 16, 0.72)",
               fontSize: { xs: 14, sm: 15, md: 16 },
               lineHeight: 1.7,
+              maxWidth: 900,
             }}
           >
-            You must consent to Whittington Homestead&apos;s Membership
-            Agreement before your tattoo appointment can be processed.
-          </Typography>
-
-          <Typography
-            sx={{
-              mt: 1.1,
-              color: "rgba(11, 20, 16, 0.72)",
-              fontSize: { xs: 14, sm: 15, md: 16 },
-              lineHeight: 1.7,
-            }}
-          >
-            Tattoo appointments require a{" "}
+            To book an appointment with your artist{" "}
             <Box component="span" sx={{ fontWeight: 700 }}>
-              $100 non-refundable deposit
+              Frank Whittington{" "}
             </Box>{" "}
-            to hold your spot. This deposit is applied to your appointment cost.
-          </Typography>
-
-          <Box
-            sx={{
-              mt: 2.6,
-              p: { xs: 1.6, sm: 2.1 },
-              borderRadius: "12px",
-              border: "1px solid rgba(39,58,36,0.18)",
-              backgroundColor: "rgba(132,164,119,0.12)",
-            }}
-          >
-            <Typography
+            at Whittington Homestead Ministries, please email{" "}
+            <Box
+              component="a"
+              href={mailtoHref}
               sx={{
-                color: "rgba(11, 20, 16, 0.88)",
-                fontSize: { xs: 14, sm: 15, md: 16 },
-                fontWeight: 600,
+                fontWeight: 700,
+                color: "rgba(39, 58, 36, 0.92)",
+                textDecoration: "underline",
+                "&:hover": {
+                  color: "rgba(39, 58, 36, 1)",
+                },
               }}
             >
-              Download the Membership Agreement PDF before proceeding.
-            </Typography>
-
-            <Box sx={{ mt: 1.4, display: "flex", flexWrap: "wrap", gap: 1.2 }}>
-              <Button
-                component="a"
-                href="/membership_agreement.pdf"
-                download
-                variant="outlined"
-                onClick={() => setDownloaded(true)}
-                sx={{
-                  borderColor: "rgba(39,58,36,0.35)",
-                  color: "rgba(11, 20, 16, 0.92)",
-                  "&:hover": {
-                    borderColor: "rgba(39,58,36,0.45)",
-                    backgroundColor: "rgba(255,255,255,0.55)",
-                  },
-                }}
-              >
-                Download Membership Agreement (PDF)
-              </Button>
-
-              <Button
-                variant="text"
-                onClick={() => setExpanded((prev) => !prev)}
-                sx={{
-                  color: "rgba(39,58,36,0.92)",
-                  fontWeight: 600,
-                }}
-              >
-                {expanded ? "Click to Collapse" : "Click to Expand"}
-              </Button>
-            </Box>
-
-            <Collapse in={expanded}>
-              <Box
-                sx={{
-                  mt: 1.6,
-                  borderRadius: "10px",
-                  overflow: "hidden",
-                  border: "1px solid rgba(16,28,22,0.14)",
-                  backgroundColor: "#fff",
-                }}
-              >
-                <Box
-                  component="iframe"
-                  src="/membership_agreement.pdf#toolbar=0"
-                  title="Whittington Homestead Membership Agreement"
-                  sx={{
-                    width: "100%",
-                    height: { xs: 420, sm: 520, md: 620 },
-                    border: 0,
-                    display: "block",
-                  }}
-                />
-              </Box>
-            </Collapse>
-          </Box>
-
-          <FormControlLabel
-            sx={{ mt: 2.2, alignItems: "flex-start" }}
-            control={
-              <Checkbox
-                checked={consented}
-                onChange={(event) => setConsented(event.target.checked)}
-                sx={{
-                  color: "rgba(39,58,36,0.55)",
-                  "&.Mui-checked": {
-                    color: "rgba(39,58,36,0.85)",
-                  },
-                }}
-              />
-            }
-            label={
-              <Typography
-                sx={{
-                  color: "rgba(11, 20, 16, 0.80)",
-                  fontSize: { xs: 14, sm: 15 },
-                  lineHeight: 1.45,
-                  pt: 0.2,
-                }}
-              >
-                I acknowledge I have downloaded and reviewed the Membership
-                Agreement and consent to proceed with the tattoo booking intake.
-              </Typography>
-            }
-          />
+              whittingtonhomestead25@gmail.com
+            </Box>{" "}
+            and we will get back to you as soon as possible to set up your
+            appointment!
+          </Typography>
         </Box>
 
-        {!openPromptModal ? (
-          <Box
-            sx={{
-              mt: { xs: 2.2, sm: 2.8, md: 3.2 },
-              maxWidth: 980,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              gap: 1,
-            }}
-          >
-            {!canContinue ? (
-              <Typography
-                sx={{
-                  px: 1.2,
-                  py: 0.65,
-                  borderRadius: "999px",
-                  fontSize: { xs: 11, sm: 12 },
-                  backgroundColor: "rgba(11,20,16,0.76)",
-                  color: "rgba(255,255,255,0.92)",
-                }}
-              >
-                Download PDF and acknowledge consent to continue
-              </Typography>
-            ) : null}
-            <ContinueButton disabled={!canContinue} onClick={handleContinue} />
-          </Box>
-        ) : null}
+        <Box
+          sx={{
+            mt: { xs: 2.2, sm: 2.8, md: 3.2 },
+            maxWidth: 980,
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <EmailButton href={mailtoHref} onClick={handleEmailNow} />
+        </Box>
       </Container>
-
-      <Dialog
-        open={openPromptModal}
-        onClose={() => setOpenPromptModal(false)}
-        aria-labelledby="tattoo-booking-email-modal"
-        maxWidth="sm"
-        fullWidth
-        PaperProps={{
-          sx: {
-            borderRadius: "12px",
-            border: "1px solid rgba(132,164,119,0.55)",
-            backgroundColor: "rgba(81, 116, 73, 1)",
-            boxShadow: "0 28px 90px rgba(0,0,0,0.32)",
-            backgroundImage: "none",
-          },
-        }}
-      >
-        <DialogContent sx={{ pt: 3 }}>
-          <Typography
-            id="tattoo-booking-email-modal"
-            sx={{
-              color: "rgba(255,255,255,0.96)",
-              fontSize: { xs: 15, sm: 16, md: 17 },
-              lineHeight: 1.6,
-              fontWeight: 600,
-            }}
-          >
-            You should now be prompted to fill out an email to book your
-            appointment. We will get back to you as soon as possible!
-          </Typography>
-        </DialogContent>
-        <DialogActions sx={{ px: 3, pb: 2.5, pt: 1 }}>
-          <Button
-            variant="contained"
-            onClick={() => navigate("/")}
-            sx={{
-              px: { xs: 1.6, sm: "var(--btn-px)" },
-              py: { xs: 0.7, sm: "var(--btn-py)" },
-              minHeight: { xs: 40, sm: 46 },
-              backgroundColor: "rgba(255,255,255,0.96)",
-              color: "rgba(11,20,16,0.92)",
-              "&:hover": {
-                backgroundColor: "rgba(205,230,216,0.92)",
-              },
-            }}
-          >
-            Back to Home Page
-          </Button>
-        </DialogActions>
-      </Dialog>
-
     </Box>
   );
 }

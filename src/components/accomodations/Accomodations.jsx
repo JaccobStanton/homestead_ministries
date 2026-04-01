@@ -13,6 +13,7 @@ import { Link as RouterLink } from "react-router-dom";
 import BedOutlinedIcon from "@mui/icons-material/BedOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
+import { LODGIFY_URL } from "../../constants/bookingLinks";
 
 import card1Img from "../../assets/accomodations/accom1.webp";
 import card2Img from "../../assets/camp/camp1.webp";
@@ -31,8 +32,6 @@ function CardPillAction({
       to={to}
       href={href}
       onClick={onClick}
-      target={href ? "_blank" : undefined}
-      rel={href ? "noopener noreferrer" : undefined}
       variant={variant}
       endIcon={
         <Box
@@ -274,7 +273,7 @@ function StayCard({
             <CardPillAction
               variant="outlined"
               onClick={onBookNow}
-              to="/sign-lodge-agreement"
+              href={LODGIFY_URL}
               sx={{
                 "&:hover": {
                   backgroundColor: "rgba(205,230,216,0.30)",

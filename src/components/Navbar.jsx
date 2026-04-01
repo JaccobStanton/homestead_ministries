@@ -16,6 +16,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import logoUrl from "../assets/logo.png";
 import { Link as RouterLink, useLocation } from "react-router-dom";
+import { LODGIFY_URL } from "../constants/bookingLinks";
 
 function PillAction({
   variant = "contained",
@@ -91,8 +92,7 @@ export default function Navbar() {
   const forceScrolled =
     pathname.startsWith("/accommodations") ||
     pathname === "/booking" ||
-    pathname === "/sign-agreement" ||
-    pathname === "/sign-lodge-agreement";
+    pathname === "/sign-agreement";
 
   React.useEffect(() => {
     if (forceScrolled) {
@@ -186,8 +186,8 @@ export default function Navbar() {
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1.1 }}>
               <PillAction
                 variant="contained"
-                component={RouterLink}
-                to="/sign-lodge-agreement"
+                component="a"
+                href={LODGIFY_URL}
               >
                 Book Now
               </PillAction>
@@ -323,8 +323,8 @@ export default function Navbar() {
           <Box sx={{ mt: 2, display: "grid", gap: 1 }}>
             <PillAction
               variant="contained"
-              component={RouterLink}
-              to="/sign-lodge-agreement"
+              component="a"
+              href={LODGIFY_URL}
               onClick={() => setOpen(false)}
             >
               Book Stay

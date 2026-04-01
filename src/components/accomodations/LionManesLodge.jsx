@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
+import { LODGIFY_URL } from "../../constants/bookingLinks";
 
 import img1 from "../../assets/accomodations/accom1.webp";
 import img2 from "../../assets/accomodations/lion1.webp";
@@ -32,8 +33,6 @@ function CardPillAction({
       to={to}
       href={href}
       onClick={onClick}
-      target={href ? "_blank" : undefined}
-      rel={href ? "noopener noreferrer" : undefined}
       variant={variant}
       endIcon={
         <Box
@@ -253,7 +252,7 @@ export default function LionManesLodge() {
             >
               <CardPillAction
                 variant="contained"
-                to="/sign-lodge-agreement"
+                href={LODGIFY_URL}
               >
                 Book Now
               </CardPillAction>
@@ -420,7 +419,7 @@ export default function LionManesLodge() {
             justifyContent: "flex-start",
           }}
         >
-          <CardPillAction variant="contained" to="/sign-lodge-agreement">
+          <CardPillAction variant="contained" href={LODGIFY_URL}>
             Book Now
           </CardPillAction>
         </Box>

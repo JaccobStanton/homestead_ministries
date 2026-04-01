@@ -3,6 +3,7 @@ import { Box, Container, Typography, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import heroUrl from "../../assets/hero/hero.webp";
+import { LODGIFY_URL } from "../../constants/bookingLinks";
 
 function PillAction({ variant = "contained", children, sx, to, href, onClick }) {
   return (
@@ -183,7 +184,7 @@ export default function Hero() {
           >
             <PillAction
               variant="contained"
-              to="/sign-lodge-agreement"
+              href={LODGIFY_URL}
             >
               Book Your Stay
             </PillAction>
